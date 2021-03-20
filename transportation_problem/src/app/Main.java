@@ -14,7 +14,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("input.fxml"));
         Parent root = loader.load();
         controller = loader.getController();
-        primaryStage.setTitle("logistic-application");
+        primaryStage.setTitle("transportation-problem");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
