@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = loader.load();
         controller = loader.getController();
         primaryStage.setTitle("transportation-problem");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 
