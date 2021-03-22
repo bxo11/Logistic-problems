@@ -170,7 +170,7 @@ public class TransportationProblem {
 
     /**
      * @param args the command line arguments
-     */
+     *
     public static void main(String[] args) throws IOException {
     // TODO code application logic here
     Scanner scanner = new Scanner(System.in);
