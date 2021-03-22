@@ -170,7 +170,7 @@ public class TransportationProblem {
 
     /**
      * @param args the command line arguments
-     *
+     */
     public static void main(String[] args) throws IOException {
     // TODO code application logic here
     Scanner scanner = new Scanner(System.in);
@@ -178,6 +178,7 @@ public class TransportationProblem {
     int s = scanner.nextInt();
     int r = scanner.nextInt();
     double x;
+
     TransportationProblem test = new TransportationProblem(s, r);
     System.out.println("Please enter the stocks capacity:");
     for (int i = 0; i < test.stockSize; i++){

@@ -62,7 +62,7 @@
             <TextField fx:id="popyt2" GridPane.columnIndex="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wynik: " GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Text fx:id="result" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button fx:id="licz" mnemonicParsing="false" text="OK" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="licz" mnemonicParsing="false" onMouseClicked="#liczButtonOnClicked" text="OK" GridPane.columnIndex="3" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <GridPane GridPane.columnIndex="1">

@@ -1,9 +1,13 @@
 package app;
 
+import app.classes.TransportationProblem;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.fxml.FXML;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Controller {
     @FXML
@@ -23,16 +27,6 @@ public class Controller {
     @FXML
     public TextField x22;
     @FXML
-    public Button licz;
-    @FXML
-    private TextField podaz1;
-    @FXML
-    private TextField podaz2;
-    @FXML
-    private TextField popyt1;
-    @FXML
-    private TextField popyt2;
-    @FXML
     private Text result;
     @FXML
     private TextField y11;
@@ -43,5 +37,27 @@ public class Controller {
     @FXML
     private TextField y22;
 
+    private final TransportationProblem operationObject = new TransportationProblem(2, 2);
 
+
+    public void liczButtonOnClicked(){
+        operationObject.setStock(String.valueOf(d1), 0);
+        operationObject.setStock(String.valueOf(d2), 1);
+        operationObject.setRequired(String.valueOf(o1), 0);
+        operationObject.setRequired(String.valueOf(o2), 1);
+
+        operationObject.setCost(x11, 0, 0);
+        operationObject.setCost(x12, 0, 1);
+        operationObject.setCost(x21, 1, 0);
+        operationObject.setCost(x22, 1, 1);
+
+        operationObject.leastCostRule();
+        result = (Text) Double.toString(operationObject.getSolution());
+
+        ArrayList list = Arrays.toString(operationObject.feasible.toArray());
+        y11 = operationObject.feasible.get(0);
+        y12 = operationObject.feasible.get(1);
+        y21 = operationObject.feasible.get(2);
+        y22 = operationObject.feasible.get(3);
+    }
 }
