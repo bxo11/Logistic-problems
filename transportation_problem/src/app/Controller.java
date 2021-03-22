@@ -1,23 +1,21 @@
 package app;
 
 import app.classes.TransportationProblem;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.fxml.FXML;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Controller {
     @FXML
-    public Text d1;
+    public TextField podaz1;
     @FXML
-    public Text d2;
+    public TextField podaz2;
     @FXML
-    public Text o1;
+    public TextField popyt1;
     @FXML
-    public Text o2;
+    public TextField popyt2;
     @FXML
     public TextField x11;
     @FXML
@@ -41,23 +39,23 @@ public class Controller {
 
 
     public void liczButtonOnClicked(){
-        operationObject.setStock(String.valueOf(d1), 0);
-        operationObject.setStock(String.valueOf(d2), 1);
-        operationObject.setRequired(String.valueOf(o1), 0);
-        operationObject.setRequired(String.valueOf(o2), 1);
+        operationObject.setStock(Double.parseDouble(podaz1.getText()), 0);
+        operationObject.setStock(Double.parseDouble(podaz2.getText()), 1);
+        operationObject.setRequired(Double.parseDouble(popyt1.getText()), 0);
+        operationObject.setRequired(Double.parseDouble(popyt2.getText()), 1);
 
-        operationObject.setCost(x11, 0, 0);
-        operationObject.setCost(x12, 0, 1);
-        operationObject.setCost(x21, 1, 0);
-        operationObject.setCost(x22, 1, 1);
+        operationObject.setCost(Double.parseDouble(x11.getText()), 0, 0);
+        operationObject.setCost(Double.parseDouble(x12.getText()), 0, 1);
+        operationObject.setCost(Double.parseDouble(x21.getText()), 1, 0);
+        operationObject.setCost(Double.parseDouble(x22.getText()), 1, 1);
 
         operationObject.leastCostRule();
-        result = (Text) Double.toString(operationObject.getSolution());
+        result.setText(String.valueOf(operationObject.getSolution()));
 
-        ArrayList list = Arrays.toString(operationObject.feasible.toArray());
-        y11 = operationObject.feasible.get(0);
-        y12 = operationObject.feasible.get(1);
-        y21 = operationObject.feasible.get(2);
-        y22 = operationObject.feasible.get(3);
+        String list = Arrays.toString(operationObject.feasible.toArray());
+        y11.setText(String.valueOf(operationObject.feasible.get(0)));
+        y12.setText(String.valueOf(operationObject.feasible.get(1)));
+        y21.setText(String.valueOf(operationObject.feasible.get(2)));
+        y22.setText(String.valueOf(operationObject.feasible.get(3)));
     }
 }

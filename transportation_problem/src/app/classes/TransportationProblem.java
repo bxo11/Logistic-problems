@@ -17,7 +17,7 @@ public class TransportationProblem {
     double []required;
     double []stock;
     double [][]cost;
-    LinkedList<Variable> feasible = new LinkedList<Variable>();
+    public LinkedList<Variable> feasible = new LinkedList<Variable>();
 
     int stockSize;
     int requiredSize;
