@@ -17,6 +17,7 @@ public class Main extends Application {
         primaryStage.setTitle("transportation-problem");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
+
     }
 
 
