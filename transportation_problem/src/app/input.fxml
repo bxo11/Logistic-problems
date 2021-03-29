@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="319.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -22,102 +22,121 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="304.0" minHeight="10.0" prefHeight="168.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="365.0" minHeight="10.0" prefHeight="365.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <GridPane prefHeight="416.0" prefWidth="396.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="67.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="121.0" minHeight="-Infinity" prefHeight="42.0" vgrow="SOMETIMES" />
-                  <RowConstraints fillHeight="false" maxHeight="212.0" minHeight="-Infinity" prefHeight="28.0" vgrow="NEVER" />
-                <RowConstraints maxHeight="403.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="443.0" minHeight="23.0" prefHeight="37.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="453.0" minHeight="-Infinity" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="121.0" minHeight="-Infinity" prefHeight="21.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" maxHeight="212.0" minHeight="-Infinity" prefHeight="32.0" vgrow="NEVER" />
+                <RowConstraints maxHeight="403.0" minHeight="0.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="443.0" minHeight="23.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="453.0" minHeight="-Infinity" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fx:id="d1" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier #1" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier #1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text fx:id="d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier #2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier #2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text fx:id="o1" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer #1" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer #1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text fx:id="o2" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer #2" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer #2" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField promptText="#1 -&gt; #1" GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="x11">
+                  <TextField promptText="#1 --&gt; #1" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x11">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="#1 -&gt; #2" GridPane.columnIndex="3" GridPane.rowIndex="2" fx:id="x12">
+                  <TextField promptText="#1 --&gt; #2" GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="x12">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="#2 -&gt; #1" GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="x21">
+                  <TextField promptText="#2 --&gt; #1" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="x21">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="#2 -&gt; #2" GridPane.columnIndex="3" GridPane.rowIndex="3" fx:id="x22">
+                  <TextField promptText="#2 --&gt; #2" GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="x22">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="podaz1" promptText="Supply #1" GridPane.rowIndex="2">
+                  <TextField fx:id="supply1" promptText="Supply #1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="podaz2" promptText="Supply #1" GridPane.rowIndex="3">
+                  <TextField fx:id="supply2" promptText="Supply #2" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="popyt1" promptText="Demand #1" GridPane.columnIndex="2">
+                  <TextField fx:id="demand1" promptText="Demand #1" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="popyt2" promptText="Demand #2" GridPane.columnIndex="3">
+                  <TextField fx:id="demand2" promptText="Demand #2" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transportation cost:" GridPane.rowIndex="4">
+                  <TextField fx:id="pPrice1" promptText="Purchase price #1" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="pPrice2" promptText="Purchase price #2" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="sPrice1" promptText="Selling price #1" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="sPrice2" promptText="Selling price #2" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transport prices:" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text fx:id="result" strokeType="OUTSIDE" strokeWidth="0.0" text="..." GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </GridPane.margin>
-                  </Text>
-                  <Button fx:id="licz" mnemonicParsing="false" onMouseClicked="#liczButtonOnClicked" text="OK" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-                     <GridPane.margin>
-                        <Insets left="5.0" right="5.0" />
-                     </GridPane.margin>
-                  </Button>
                </children>
             </GridPane>
+            <Button fx:id="compute" mnemonicParsing="false" onMouseClicked="#computeButtonOnClicked" text="OK" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
       <GridPane style="-fx-border-color: black;" GridPane.columnIndex="1">
@@ -125,8 +144,8 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="171.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="148.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="245.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <GridPane>
@@ -135,11 +154,14 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="155.0" minHeight="7.0" prefHeight="47.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="108.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="116.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="108.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Results" GridPane.halignment="CENTER" />
-                  <GridPane GridPane.rowIndex="1">
+                  <GridPane GridPane.rowIndex="2">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -149,20 +171,105 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField fx:id="y11">
+                        <TextField fx:id="p11">
                            <GridPane.margin>
                               <Insets left="5.0" right="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="y21" layoutX="10.0" layoutY="24.0" GridPane.rowIndex="1">
+                        <TextField fx:id="p21" layoutX="10.0" layoutY="24.0" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" right="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="y12" GridPane.columnIndex="1" />
-                        <TextField fx:id="y22" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="p12" GridPane.columnIndex="1" />
+                        <TextField fx:id="p22" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
+                  <GridPane GridPane.rowIndex="4">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="t11">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="t21" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="t12" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="t22" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                     </children>
+                  </GridPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zyski jednostkowe" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optymalne przewozy:" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+               </children>
+            </GridPane>
+            <GridPane prefHeight="98.0" prefWidth="412.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total cost">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text fx:id="total_cost" strokeType="OUTSIDE" strokeWidth="0.0" text="..." GridPane.columnIndex="1" GridPane.halignment="LEFT">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total income" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Profit" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text fx:id="total_income" strokeType="OUTSIDE" strokeWidth="0.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text fx:id="profit" strokeType="OUTSIDE" strokeWidth="0.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </Text>
                </children>
             </GridPane>
          </children>
