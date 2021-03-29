@@ -61,7 +61,7 @@ public class Controller {
     @FXML
     private TextField t22;
 
-    private final TransportationProblem operationObject = new TransportationProblem(2, 2);
+    private final TransportationProblem operationObject = new TransportationProblem(2 + 1,  2 + 1);
 
     public void computeButtonOnClicked(){
         operationObject.setStock(Double.parseDouble(supply1.getText()), 0);
@@ -74,10 +74,28 @@ public class Controller {
         operationObject.setCost(Double.parseDouble(x21.getText()), 1, 0);
         operationObject.setCost(Double.parseDouble(x22.getText()), 1, 1);
 
+        int stockSum = 0;
+        int requiredSum = 0;
+        for (int i = 0; i < operationObject.getStockSize() -1; i++) {
+            stockSum += operationObject.getStock(i);
+        }
+        for (int i = 0; i < operationObject.getRequiredSize() -1; i++) {
+            requiredSum += operationObject.getRequired(i);
+        }
+        operationObject.setStock(requiredSum, operationObject.getStockSize() -1);
+        operationObject.setRequired(requiredSum, operationObject.getRequiredSize() -1);
+
+        operationObject.setPurchasePrice(Double.parseDouble(pPrice1.getText()), 0);
+        operationObject.setPurchasePrice(Double.parseDouble(pPrice2.getText()), 1);
+
+        operationObject.setSellPrice(Double.parseDouble(sPrice1.getText()), 0);
+        operationObject.setSellPrice(Double.parseDouble(sPrice2.getText()), 1);
+
+
         operationObject.leastCostRule();
         profit.setText(String.valueOf(operationObject.getSolution()));
 
-        for(Variable v : operationObject.feasible){
+        for(Variable v : operationObject.getFeasible()){
             if (v.getStock()==0 && v.getRequired()==0){
                 p11.setText(String.valueOf(v.getValue()));
             }
