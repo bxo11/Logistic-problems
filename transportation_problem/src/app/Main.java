@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = loader.load();
         controller = loader.getController();
         primaryStage.setTitle("zagadnienie-posrednika");
-        primaryStage.setScene(new Scene(root, 800, 400));
+        primaryStage.setScene(new Scene(root, 900, 500));
         primaryStage.show();
     }
 
