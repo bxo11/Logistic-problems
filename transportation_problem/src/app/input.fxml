@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,82 +47,82 @@
                   <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier #1" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier 1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier #2" GridPane.rowIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier 2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer #1" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer 1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer #2" GridPane.rowIndex="4">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer 2" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField promptText="#1 --&gt; #1" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x11">
+                  <TextField promptText="(1) --&gt; (1)" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x11">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="#1 --&gt; #2" GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="x12">
+                  <TextField promptText="(1) --&gt; (2)" GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="x12">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="#2 --&gt; #1" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="x21">
+                  <TextField promptText="(2) --&gt; (1)" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="x21">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="#2 --&gt; #2" GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="x22">
+                  <TextField promptText="(2) --&gt; (2)" GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="x22">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="supply1" promptText="Supply #1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="supply1" promptText="Supply (1)" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="supply2" promptText="Supply #2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="supply2" promptText="Supply (2)" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="demand1" promptText="Demand #1" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <TextField fx:id="demand1" promptText="Demand (1)" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="demand2" promptText="Demand #2" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <TextField fx:id="demand2" promptText="Demand (2)" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="pPrice1" promptText="Purchase price #1" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="pPrice1" promptText="Purchase price (1)" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="pPrice2" promptText="Purchase price #2" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="pPrice2" promptText="Purchase price (2)" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="sPrice1" promptText="Selling price #1" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <TextField fx:id="sPrice1" promptText="Selling price (1)" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="sPrice2" promptText="Selling price #2" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <TextField fx:id="sPrice2" promptText="Selling price (2)" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
@@ -134,7 +134,7 @@
                   </Text>
                </children>
             </GridPane>
-            <Button fx:id="compute" mnemonicParsing="false" onMouseClicked="#computeButtonOnClicked" text="OK" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="compute" mnemonicParsing="false" onMouseClicked="#computeButtonOnClicked" prefHeight="27.0" prefWidth="73.0" text="Solve" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -163,12 +163,12 @@
               </rowConstraints>
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Results" GridPane.halignment="CENTER" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zyski jednostkowe" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Individual profits:" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optymalne przewozy:" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optimal transport:" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
