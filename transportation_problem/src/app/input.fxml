@@ -134,7 +134,7 @@
                   </Text>
                </children>
             </GridPane>
-            <Button fx:id="compute" mnemonicParsing="false" onMouseClicked="#computeButtonOnClicked" prefHeight="27.0" prefWidth="73.0" text="Solve" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="compute" mnemonicParsing="false" onMouseClicked="#computeButtonOnClicked" prefHeight="27.0" prefWidth="77.0" text="Solve" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>

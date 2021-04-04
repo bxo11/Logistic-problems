@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+
+
 public class Controller {
     @FXML
     public TextField supply1;
@@ -62,9 +64,12 @@ public class Controller {
     @FXML
     private Text total_cost;
 
+
     private final TransportationProblem operationObject = new TransportationProblem(2 + 1, 2 + 1);
 
     public ObservableList<Variable> optimalTransportation = FXCollections.observableArrayList();
+
+
 
     public void computeButtonOnClicked() {
         operationObject.setStock(Double.parseDouble(supply1.getText()), 0);
@@ -77,14 +82,18 @@ public class Controller {
         operationObject.setCost(Double.parseDouble(x21.getText()), 1, 0);
         operationObject.setCost(Double.parseDouble(x22.getText()), 1, 1);
 
-        int stockSum = 0;
+
+        int stockSum    = 0;
         int requiredSum = 0;
-        for (int i = 0; i < operationObject.getStockSize() - 1; i++) {
+
+        for (int i = 0; i < operationObject.getStockSize() - 1; ++i) {
             stockSum += operationObject.getStock(i);
         }
-        for (int i = 0; i < operationObject.getRequiredSize() - 1; i++) {
+        for (int i = 0; i < operationObject.getRequiredSize() - 1; ++i) {
             requiredSum += operationObject.getRequired(i);
         }
+
+
         operationObject.setStock(requiredSum, operationObject.getStockSize() - 1);
         operationObject.setRequired(requiredSum, operationObject.getRequiredSize() - 1);
 
@@ -95,6 +104,7 @@ public class Controller {
         operationObject.setSellPrice(Double.parseDouble(sPrice2.getText()), 1);
 
 
+
         operationObject.leastCostRule();
         profit.setText(String.valueOf(operationObject.getSolution()));
 
@@ -103,10 +113,10 @@ public class Controller {
             v.setRequired(v.getRequired() + 1);
             optimalTransportation.add(v);
         }
+
         fromColumn_ot.setCellValueFactory(new PropertyValueFactory<>("stock"));
         toColumn_ot.setCellValueFactory(new PropertyValueFactory<>("required"));
         valueColumn_ot.setCellValueFactory(new PropertyValueFactory<>("value"));
         optTransTable.setItems(optimalTransportation);
-
     }
 }
