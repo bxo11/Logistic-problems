@@ -137,6 +137,7 @@
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
             </Button>
+            <Text fx:id="errorField" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="359.22900390625" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <GridPane style="-fx-border-color: black;" GridPane.columnIndex="1">
@@ -175,14 +176,14 @@
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField fx:id="indvProfits11" promptText="(1) --&gt; (1)" GridPane.rowIndex="2" />
-                  <TextField fx:id="indvProfits12" promptText="(1) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="indvProfits21" promptText="(2) --&gt; (1)" GridPane.rowIndex="3" />
-                  <TextField fx:id="indvProfits22" promptText="(2) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="optTransport11" promptText="(1) --&gt; (1)" GridPane.rowIndex="5" />
-                  <TextField fx:id="optTransport12" promptText="(1) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField fx:id="optTransport21" promptText="(2) --&gt; (1)" GridPane.rowIndex="6" />
-                  <TextField fx:id="optTransport22" promptText="(2) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="indvProfits11" promptText="(1) --&gt; (1)" style="-fx-background-color: #00ffa2;" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <TextField fx:id="indvProfits12" promptText="(1) --&gt; (2)" style="-fx-background-color: #00ffa2;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <TextField fx:id="indvProfits21" promptText="(2) --&gt; (1)" style="-fx-background-color: #00ffa2;" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <TextField fx:id="indvProfits22" promptText="(2) --&gt; (2)" style="-fx-background-color: #00ffa2;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <TextField fx:id="optTransport11" promptText="(1) --&gt; (1)" style="-fx-background-color: #00ffea;" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                  <TextField fx:id="optTransport12" promptText="(1) --&gt; (2)" style="-fx-background-color: #00ffea;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                  <TextField fx:id="optTransport21" promptText="(2) --&gt; (1)" style="-fx-background-color: #00ffea;" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                  <TextField fx:id="optTransport22" promptText="(2) --&gt; (2)" style="-fx-background-color: #00ffea;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                </children>
             </GridPane>
             <GridPane prefHeight="98.0" prefWidth="412.0" GridPane.rowIndex="1">
