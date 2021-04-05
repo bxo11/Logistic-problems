@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -152,44 +150,39 @@
          <children>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="155.0" minHeight="7.0" prefHeight="32.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="158.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="269.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Results" GridPane.halignment="CENTER" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.halignment="CENTER" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Individual profits:" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optimal transport:" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optimal transport:" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <TableView fx:id="optTransTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
-                    <columns>
-                      <TableColumn fx:id="fromColumn_ot" maxWidth="100.0" minWidth="100.0" prefWidth="135.0" resizable="false" text="From" />
-                      <TableColumn fx:id="toColumn_ot" maxWidth="100.0" minWidth="100.0" prefWidth="122.0" resizable="false" text="To" />
-                        <TableColumn fx:id="valueColumn_ot" minWidth="0.0" prefWidth="247.0" text="Value" />
-                    </columns>
-                     <opaqueInsets>
-                        <Insets left="5.0" right="5.0" />
-                     </opaqueInsets>
-                  </TableView>
-                  <TableView fx:id="unitCostTable" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                    <columns>
-                      <TableColumn fx:id="fromColumn_uc" maxWidth="100.0" minWidth="100.0" prefWidth="-1.0" text="From" />
-                      <TableColumn fx:id="toColumn_uc" maxWidth="100.0" minWidth="100.0" prefWidth="-1.0" text="To" />
-                        <TableColumn fx:id="costColumn_ut" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="247.0" resizable="false" text="Unit cost" />
-                    </columns>
-                  </TableView>
+                  <TextField fx:id="indvProfits11" promptText="(1) --&gt; (1)" GridPane.rowIndex="2" />
+                  <TextField fx:id="indvProfits12" promptText="(1) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="indvProfits21" promptText="(2) --&gt; (1)" GridPane.rowIndex="3" />
+                  <TextField fx:id="indvProfits22" promptText="(2) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="optTransport11" promptText="(1) --&gt; (1)" GridPane.rowIndex="5" />
+                  <TextField fx:id="optTransport12" promptText="(1) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="optTransport21" promptText="(2) --&gt; (1)" GridPane.rowIndex="6" />
+                  <TextField fx:id="optTransport22" promptText="(2) --&gt; (2)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
             <GridPane prefHeight="98.0" prefWidth="412.0" GridPane.rowIndex="1">

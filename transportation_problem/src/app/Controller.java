@@ -2,15 +2,9 @@ package app;
 
 import app.classes.TransportationProblem;
 import app.classes.Variable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-
 
 
 public class Controller {
@@ -40,22 +34,24 @@ public class Controller {
     public TextField x21;
     @FXML
     public TextField x22;
+
     @FXML
-    public TableView optTransTable;
+    public TextField indvProfits11;
     @FXML
-    public TableView unitCostTable;
+    public TextField indvProfits12;
     @FXML
-    public TableColumn fromColumn_ot;
+    public TextField indvProfits21;
     @FXML
-    public TableColumn toColumn_ot;
+    public TextField indvProfits22;
+
     @FXML
-    public TableColumn valueColumn_ot;
+    public TextField optTransport11;
     @FXML
-    public TableColumn fromColumn_uc;
+    public TextField optTransport12;
     @FXML
-    public TableColumn toColumn_uc;
+    public TextField optTransport21;
     @FXML
-    public TableColumn costColumn_ut;
+    public TextField optTransport22;
 
     @FXML
     private Text profit;
@@ -63,11 +59,9 @@ public class Controller {
     private Text total_income;
     @FXML
     private Text total_cost;
-
+    private double local_total_cost = 0.0;
 
     private final TransportationProblem operationObject = new TransportationProblem(2 + 1, 2 + 1);
-
-    public ObservableList<Variable> optimalTransportation = FXCollections.observableArrayList();
 
 
 
@@ -94,7 +88,7 @@ public class Controller {
         }
 
 
-        operationObject.setStock(requiredSum, operationObject.getStockSize() - 1);
+        operationObject.setStock(stockSum, operationObject.getStockSize() - 1);
         operationObject.setRequired(requiredSum, operationObject.getRequiredSize() - 1);
 
         operationObject.setPurchasePrice(Double.parseDouble(pPrice1.getText()), 0);
@@ -106,17 +100,44 @@ public class Controller {
 
 
         operationObject.leastCostRule();
-        profit.setText(String.valueOf(operationObject.getSolution()));
+
+        indvProfits11.setText("0");
+        indvProfits12.setText("0");
+        indvProfits21.setText("0");
+        indvProfits22.setText("0");
+        optTransport11.setText("0");
+        optTransport12.setText("0");
+        optTransport21.setText("0");
+        optTransport22.setText("0");
+
 
         for (Variable v : operationObject.getFeasible()) {
-            v.setStock(v.getStock() + 1);
-            v.setRequired(v.getRequired() + 1);
-            optimalTransportation.add(v);
-        }
 
-        fromColumn_ot.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        toColumn_ot.setCellValueFactory(new PropertyValueFactory<>("required"));
-        valueColumn_ot.setCellValueFactory(new PropertyValueFactory<>("value"));
-        optTransTable.setItems(optimalTransportation);
+            if (v.getStock() == 0 && v.getRequired() == 0){
+                indvProfits11.setText(Double.toString(operationObject.getCost()[0][0]));
+                optTransport11.setText(Double.toString(v.getValue()));
+                local_total_cost += Double.parseDouble(pPrice1.getText()) + Double.parseDouble(x11.getText());
+            }
+            if (v.getStock() == 0 && v.getRequired() == 1){
+                indvProfits12.setText(Double.toString(operationObject.getCost()[0][1]));
+                optTransport12.setText(Double.toString(v.getValue()));
+                local_total_cost += Double.parseDouble(pPrice1.getText()) + Double.parseDouble(x12.getText());
+            }
+            if (v.getStock() == 1 && v.getRequired() == 0){
+                indvProfits21.setText(Double.toString(operationObject.getCost()[1][0]));
+                optTransport21.setText(Double.toString(v.getValue()));
+                local_total_cost += Double.parseDouble(pPrice2.getText()) + Double.parseDouble(x21.getText());
+            }
+            if (v.getStock() == 1 && v.getRequired() == 1){
+                indvProfits22.setText(Double.toString(operationObject.getCost()[1][1]));
+                optTransport22.setText(Double.toString(v.getValue()));
+                local_total_cost += Double.parseDouble(pPrice2.getText()) + Double.parseDouble(x22.getText());
+            }
+
+
+            total_cost.setText(Double.toString(local_total_cost));
+            total_income.setText(Double.toString(operationObject.getSolution()));
+            profit.setText(String.valueOf(operationObject.getSolution() - local_total_cost));
+        }
     }
 }

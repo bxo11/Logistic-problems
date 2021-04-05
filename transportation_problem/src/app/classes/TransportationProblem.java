@@ -79,6 +79,10 @@ public class TransportationProblem {
         return feasible;
     }
 
+    public double[][] getCost() {
+        return cost;
+    }
+
     /**
      * initializes the feasible solution list using the North-West Corner
      *
@@ -210,62 +214,4 @@ public class TransportationProblem {
         return result;
 
     }
-
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String[] args) throws IOException {
-//        // TODO code application logic here
-//
-//        Scanner scanner = new Scanner(System.in);
-//
-//        int s = 2;
-//        int r = 3;
-//        TransportationProblem test = new TransportationProblem(s + 1, r + 1);
-//
-//        test.setStock(20, 0);
-//        test.setStock(30, 1);
-//
-//        test.setRequired(10, 0);
-//        test.setRequired(28, 1);
-//        test.setRequired(27, 2);
-//
-//        int stockSum = 0;
-//        int requiredSum = 0;
-//        for (int i = 0; i < test.stockSize -1; i++) {
-//            stockSum += test.stock[i];
-//        }
-//        for (int i = 0; i < test.requiredSize -1; i++) {
-//            requiredSum += test.required[i];
-//        }
-//        test.setStock(requiredSum, test.stockSize -1);
-//        test.setRequired(requiredSum, test.requiredSize -1);
-//
-//        test.setPurchasePrice(10, 0);
-//        test.setPurchasePrice(12, 1);
-//
-//        test.setSellPrice(30, 0);
-//        test.setSellPrice(25, 1);
-//        test.setSellPrice(30, 2);
-//
-//        test.setCost(8, 0, 0);
-//        test.setCost(14, 0, 1);
-//        test.setCost(17, 0, 2);
-//
-//        test.setCost(12, 1, 0);
-//        test.setCost(9, 1, 1);
-//        test.setCost(19, 1, 2);
-//
-//        test.leastCostRule();
-//
-//        for (Variable t : test.feasible) {
-//            System.out.println(t);
-//        }
-//
-//        System.out.println("Target function: " + test.getSolution());
-//
-//    }
-
-
 }
