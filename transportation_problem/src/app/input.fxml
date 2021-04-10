@@ -45,42 +45,42 @@
                   <RowConstraints maxHeight="453.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier 1" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier 1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier 2" GridPane.rowIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier 2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer 1" GridPane.rowIndex="3">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer 1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer 2" GridPane.rowIndex="4">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer 2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField promptText="(1) --&gt; (1)" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x11">
+                  <TextField promptText="(1) --&gt; (1)" style="-fx-background-color: #ff5533#ff5533;" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x11">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="(1) --&gt; (2)" GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="x12">
+                  <TextField promptText="(1) --&gt; (2)" style="-fx-background-color: #ff5533#ff5533;" GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="x12">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="(2) --&gt; (1)" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="x21">
+                  <TextField promptText="(2) --&gt; (1)" style="-fx-background-color: #ff5533#ff5533;" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="x21">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField promptText="(2) --&gt; (2)" GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="x22">
+                  <TextField promptText="(2) --&gt; (2)" style="-fx-background-color: #ff5533#ff5533;" GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="x22">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
@@ -166,12 +166,12 @@
               </rowConstraints>
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.halignment="CENTER" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Individual profits:" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optimal transport:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Optimal transport:" GridPane.rowIndex="4">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Individual profits:" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>

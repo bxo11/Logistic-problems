@@ -119,22 +119,22 @@ public class Controller {
                 if (v.getStock() == 0 && v.getRequired() == 0) {
                     indvProfits11.setText(Double.toString(operationObject.getCost()[0][0]));
                     optTransport11.setText(Double.toString(v.getValue()));
-                    local_total_cost += Double.parseDouble(pPrice1.getText()) + Double.parseDouble(x11.getText());
+                    local_total_cost += operationObject.getCost()[0][0] * (Double.parseDouble(sPrice1.getText()) - Double.parseDouble(pPrice1.getText())) + Double.parseDouble(x11.getText());
                 }
                 if (v.getStock() == 0 && v.getRequired() == 1) {
                     indvProfits12.setText(Double.toString(operationObject.getCost()[0][1]));
                     optTransport12.setText(Double.toString(v.getValue()));
-                    local_total_cost += Double.parseDouble(pPrice1.getText()) + Double.parseDouble(x12.getText());
+                    local_total_cost += operationObject.getCost()[0][1] * (Double.parseDouble(sPrice1.getText()) - Double.parseDouble(pPrice2.getText())) + Double.parseDouble(x12.getText());
                 }
                 if (v.getStock() == 1 && v.getRequired() == 0) {
                     indvProfits21.setText(Double.toString(operationObject.getCost()[1][0]));
                     optTransport21.setText(Double.toString(v.getValue()));
-                    local_total_cost += Double.parseDouble(pPrice2.getText()) + Double.parseDouble(x21.getText());
+                    local_total_cost += operationObject.getCost()[1][0] * (Double.parseDouble(sPrice2.getText()) - Double.parseDouble(pPrice1.getText())) + Double.parseDouble(x21.getText());
                 }
                 if (v.getStock() == 1 && v.getRequired() == 1) {
                     indvProfits22.setText(Double.toString(operationObject.getCost()[1][1]));
                     optTransport22.setText(Double.toString(v.getValue()));
-                    local_total_cost += Double.parseDouble(pPrice2.getText()) + Double.parseDouble(x22.getText());
+                    local_total_cost += operationObject.getCost()[1][1] * (Double.parseDouble(sPrice2.getText()) - Double.parseDouble(pPrice2.getText())) + Double.parseDouble(x22.getText());
                 }
             }
 
@@ -144,7 +144,7 @@ public class Controller {
                 profit.setText(String.valueOf(operationObject.getSolution() - local_total_cost));
             } catch(Exception ex) {
                 errorField.setText("");
-                Thread.sleep(300);
+                Thread.sleep(500);
                 errorField.setText("Insufficiently little data or incorrectly given.");
             }
         }
