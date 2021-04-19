@@ -137,7 +137,7 @@ public class TransportationProblem {
      * @return double: time elapsed
      */
 
-    public double leastCostRule() {
+    public double maximumProfitRule() {
         calculateProfits();
 
         long start = System.nanoTime();
