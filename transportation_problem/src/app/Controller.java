@@ -54,9 +54,9 @@ public class Controller {
     public TextField optTransport22;
 
     @FXML
-    private Text profit;
+    private Text income;
     @FXML
-    private Text total_income;
+    private Text middleman_profit;
     @FXML
     private Text total_cost;
     @FXML
@@ -74,15 +74,18 @@ public class Controller {
             operationObject.setRequired(Double.parseDouble(demand1.getText()), 0);
             operationObject.setRequired(Double.parseDouble(demand2.getText()), 1);
 
-            operationObject.setCost(Double.parseDouble(x11.getText()), 0, 0);
-            operationObject.setCost(Double.parseDouble(x12.getText()), 0, 1);
-            operationObject.setCost(Double.parseDouble(x21.getText()), 1, 0);
-            operationObject.setCost(Double.parseDouble(x22.getText()), 1, 1);
+            operationObject.setUnit_profit(Double.parseDouble(x11.getText()), 0, 0);
+            operationObject.setUnit_profit(Double.parseDouble(x12.getText()), 0, 1);
+            operationObject.setUnit_profit(Double.parseDouble(x21.getText()), 1, 0);
+            operationObject.setUnit_profit(Double.parseDouble(x22.getText()), 1, 1);
 
 
             int stockSum = 0;
             int requiredSum = 0;
-            double total_local_cost = 0.0;
+            double t_cost = 0.0;
+            double local_transportation_cost = 0.0;
+            double local_buy_cost = 0.0;
+            double local_profit = 0.0;
 
 
             for (int i = 0; i < operationObject.getStockSize() - 1; ++i) {
@@ -114,35 +117,55 @@ public class Controller {
             optTransport21.setText("0");
             optTransport22.setText("0");
 
+            for (int i=0;i<2;i++ ){
+                for (int j=0;j<2;j++ ){
+                    if (i == 0 && j == 0) {
+                        indvProfits11.setText(Double.toString(operationObject.getUnit_profit()[0][0]));
+                    }
+                    if (i == 0 && j == 1) {
+                        indvProfits12.setText(Double.toString(operationObject.getUnit_profit()[0][1]));
+                    }
+                    if (i == 1 && j == 0) {
+                        indvProfits21.setText(Double.toString(operationObject.getUnit_profit()[1][0]));
+                    }
+                    if (i == 1 && j == 1) {
+                        indvProfits22.setText(Double.toString(operationObject.getUnit_profit()[1][1]));
+                    }
+                }
+            }
 
             for (Variable v : operationObject.getFeasible()) {
 
                 if (v.getStock() == 0 && v.getRequired() == 0) {
-                    indvProfits11.setText(Double.toString(operationObject.getCost()[0][0]));
                     optTransport11.setText(Double.toString(v.getValue()));
-                    total_local_cost += operationObject.getCost()[0][0] * (Double.parseDouble(sPrice1.getText()) - Double.parseDouble(pPrice1.getText())) + Double.parseDouble(x11.getText());
+                    local_transportation_cost += operationObject.getTransportation_cost()[0][0] * v.getValue();
+                    local_buy_cost += v.getValue() * operationObject.getPurchasePrice()[0];
+                    local_profit += v.getValue() * operationObject.getSellPrice()[0];
                 }
                 if (v.getStock() == 0 && v.getRequired() == 1) {
-                    indvProfits12.setText(Double.toString(operationObject.getCost()[0][1]));
                     optTransport12.setText(Double.toString(v.getValue()));
-                    total_local_cost += operationObject.getCost()[0][1] * (Double.parseDouble(sPrice1.getText()) - Double.parseDouble(pPrice2.getText())) + Double.parseDouble(x12.getText());
+                    local_transportation_cost += operationObject.getTransportation_cost()[0][1] * v.getValue();
+                    local_buy_cost += v.getValue() * operationObject.getPurchasePrice()[0];
+                    local_profit += v.getValue() * operationObject.getSellPrice()[1];
                 }
                 if (v.getStock() == 1 && v.getRequired() == 0) {
-                    indvProfits21.setText(Double.toString(operationObject.getCost()[1][0]));
                     optTransport21.setText(Double.toString(v.getValue()));
-                    total_local_cost += operationObject.getCost()[1][0] * (Double.parseDouble(sPrice2.getText()) - Double.parseDouble(pPrice1.getText())) + Double.parseDouble(x21.getText());
+                    local_transportation_cost += operationObject.getTransportation_cost()[1][0] * v.getValue();
+                    local_buy_cost += v.getValue() * operationObject.getPurchasePrice()[1];
+                    local_profit += v.getValue() * operationObject.getSellPrice()[0];
                 }
                 if (v.getStock() == 1 && v.getRequired() == 1) {
-                    indvProfits22.setText(Double.toString(operationObject.getCost()[1][1]));
                     optTransport22.setText(Double.toString(v.getValue()));
-                    total_local_cost += operationObject.getCost()[1][1] * (Double.parseDouble(sPrice2.getText()) - Double.parseDouble(pPrice2.getText())) + Double.parseDouble(x22.getText());
+                    local_transportation_cost += operationObject.getTransportation_cost()[1][1] * v.getValue();
+                    local_buy_cost += v.getValue() * operationObject.getPurchasePrice()[1];
+                    local_profit += v.getValue() * operationObject.getSellPrice()[1];
                 }
             }
 
-
-                total_cost.setText(Double.toString(total_local_cost));
-                total_income.setText(Double.toString(operationObject.getSolution()));
-                profit.setText(String.valueOf(operationObject.getSolution() - total_local_cost));
+                t_cost = local_transportation_cost + local_buy_cost;
+                total_cost.setText(local_transportation_cost+" + "+local_buy_cost+" = "+ Double.toString(t_cost));
+                income.setText(String.valueOf(local_profit));
+                middleman_profit.setText(Double.toString(operationObject.getSolution()));
             } catch(Exception ex) {
                 errorField.setText("");
                 Thread.sleep(500);

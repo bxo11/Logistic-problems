@@ -14,7 +14,8 @@ public class TransportationProblem {
 
     double[] required;
     double[] stock;
-    double[][] cost;
+    double[][] unit_profit;
+    double[][] transportation_cost;
     LinkedList<Variable> feasible = new LinkedList<Variable>();
 
     int stockSize;
@@ -29,7 +30,8 @@ public class TransportationProblem {
 
         stock = new double[stockSize];
         required = new double[requiredSize];
-        cost = new double[stockSize][requiredSize];
+        unit_profit = new double[stockSize][requiredSize];
+        transportation_cost = new double[stockSize][requiredSize];
 
         purchasePrice = new double[stockSize];
         sellPrice = new double[requiredSize];
@@ -63,8 +65,8 @@ public class TransportationProblem {
         sellPrice[index] = value;
     }
 
-    public void setCost(double value, int stock, int required) {
-        cost[stock][required] = value;
+    public void setUnit_profit(double value, int stock, int required) {
+        unit_profit[stock][required] = value;
     }
 
     public int getStockSize() {
@@ -79,8 +81,20 @@ public class TransportationProblem {
         return feasible;
     }
 
-    public double[][] getCost() {
-        return cost;
+    public double[][] getUnit_profit() {
+        return unit_profit;
+    }
+
+    public double[][] getTransportation_cost() {
+        return transportation_cost;
+    }
+
+    public double[] getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public double[] getSellPrice() {
+        return sellPrice;
     }
 
     /**
@@ -162,10 +176,10 @@ public class TransportationProblem {
             for (int m = 0; m < stockSize; m++)
                 for (int n = 0; n < requiredSize; n++)
                     if (!isSet[m][n])
-                        if (cost[m][n] > maxCost.getValue()) {
+                        if (unit_profit[m][n] > maxCost.getValue()) {
                             maxCost.setStock(m);
                             maxCost.setRequired(n);
-                            maxCost.setValue(cost[m][n]);
+                            maxCost.setValue(unit_profit[m][n]);
                         }
 
             i = maxCost.getStock();
@@ -197,9 +211,13 @@ public class TransportationProblem {
     }
 
     public double calculateProfits() {
+        for(int i=0; i<transportation_cost.length; i++)
+            for(int j=0; j<transportation_cost[i].length; j++)
+                transportation_cost[i][j]= unit_profit[i][j];
+
         for (int m = 0; m < stockSize - 1; m++) {
             for (int n = 0; n < requiredSize - 1; n++) {
-                cost[m][n] = sellPrice[n] - purchasePrice[m] - cost[m][n];
+                unit_profit[m][n] = sellPrice[n] - purchasePrice[m] - unit_profit[m][n];
             }
         }
         return 0;
@@ -208,7 +226,7 @@ public class TransportationProblem {
     public double getSolution() {
         double result = 0;
         for (Variable x : feasible) {
-            result += x.getValue() * cost[x.getStock()][x.getRequired()];
+            result += x.getValue() * unit_profit[x.getStock()][x.getRequired()];
         }
 
         return result;
