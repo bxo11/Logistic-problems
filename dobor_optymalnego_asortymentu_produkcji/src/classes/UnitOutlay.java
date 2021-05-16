@@ -3,6 +3,7 @@ package classes;
 public class UnitOutlay {
     String name;
     double value;
+    int amount;
 
     public UnitOutlay(String name, double value) {
         this.name = name;
@@ -23,5 +24,13 @@ public class UnitOutlay {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

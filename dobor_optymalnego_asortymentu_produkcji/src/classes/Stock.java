@@ -1,11 +1,14 @@
 package classes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.List;
 
 public class Stock {
 
     String name;
-    List<UnitOutlay> unitOutlayList;
+    ObservableList<UnitOutlay> unitOutlayList = FXCollections.observableArrayList();
 
     public Stock(String name) {
         this.name = name;
@@ -19,11 +22,11 @@ public class Stock {
         this.name = name;
     }
 
-    public List<UnitOutlay> getUnitOutlayList() {
+    public ObservableList<UnitOutlay> getUnitOutlayList() {
         return unitOutlayList;
     }
 
-    public void setUnitOutlayList(List<UnitOutlay> unitOutlayList) {
+    public void setUnitOutlayList(ObservableList<UnitOutlay> unitOutlayList) {
         this.unitOutlayList = unitOutlayList;
     }
 }
