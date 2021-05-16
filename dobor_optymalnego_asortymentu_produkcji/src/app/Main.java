@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lpsolve.LpSolve;
+import lpsolve.LpSolveException;
 
 public class Main extends Application {
     private Controller controller;
