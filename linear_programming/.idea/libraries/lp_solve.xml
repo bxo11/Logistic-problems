@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="lib">
+  <library name="lp_solve">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/libraries/lp_solve_5.5_java/lib" />
     </CLASSES>
