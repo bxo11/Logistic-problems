@@ -29,6 +29,10 @@ public class Controller {
     ObservableList<Stock> stockList = FXCollections.observableArrayList();
     ObservableList<UnitOutlay> uoList = FXCollections.observableArrayList();
 
+    int problemSize = 2;
+    int[] amountArray = new int[problemSize];
+    int[] priceArray = new int[problemSize];
+
     public void stockAddButton() {
         Stock stock = new Stock("...");
         stockList.add(stock);
