@@ -1,5 +1,6 @@
 package app;
 
+import classes.Problem;
 import classes.Stock;
 import classes.UnitOutlay;
 import javafx.collections.FXCollections;
@@ -11,9 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.DoubleStringConverter;
-
-import java.util.ArrayList;
-import java.util.List;
+import javafx.util.converter.IntegerStringConverter;
 
 public class Controller {
 
@@ -22,16 +21,27 @@ public class Controller {
     public TableColumn<UnitOutlay, Double> col_uoVal;
     public TableView<Stock> tableViewStock;
     public TableView<UnitOutlay> tableViewUnitOutlay;
-    public Button buttonStockAdd;
-    public Button buttonStockDel;
-    public Button buttonUOAdd;
-    public Button buttonUODel;
+    public TableView<Problem> tableProblem;
+    public TableColumn<Problem, String> col_problemName;
+    public TableColumn<Problem, Integer> col_problemAmount;
+    public TableColumn<Problem, Double> col_problemPrice;
+    ObservableList<Problem> problemList = FXCollections.observableArrayList();
     ObservableList<Stock> stockList = FXCollections.observableArrayList();
     ObservableList<UnitOutlay> uoList = FXCollections.observableArrayList();
 
     int problemSize = 2;
     int[] amountArray = new int[problemSize];
     int[] priceArray = new int[problemSize];
+
+    public void problemAddButton() {
+        Problem problem = new Problem();
+        problemList.add(problem);
+    }
+
+    public void problemDeleteButton() {
+        int index = tableProblem.getSelectionModel().getSelectedIndex();
+        problemList.remove(index);
+    }
 
     public void stockAddButton() {
         Stock stock = new Stock("...");
@@ -64,17 +74,32 @@ public class Controller {
 
     public void onStockNameEdit(TableColumn.CellEditEvent<Stock, String> stockStringCellEditEvent) {
         Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
-        stock.setName((String) stockStringCellEditEvent.getNewValue());
+        stock.setName(stockStringCellEditEvent.getNewValue());
     }
 
-    public void onUONameEdit(TableColumn.CellEditEvent<Stock, String> stockStringCellEditEvent) {
+    public void onUONameEdit(TableColumn.CellEditEvent<UnitOutlay, String> stockStringCellEditEvent) {
         UnitOutlay unitOutlay = tableViewUnitOutlay.getSelectionModel().getSelectedItem();
-        unitOutlay.setName((String) stockStringCellEditEvent.getNewValue());
+        unitOutlay.setName(stockStringCellEditEvent.getNewValue());
     }
 
-    public void onUOValueEdit(TableColumn.CellEditEvent<Stock, Double> stockStringCellEditEvent) {
+    public void onUOValueEdit(TableColumn.CellEditEvent<UnitOutlay, Double> stockStringCellEditEvent) {
         UnitOutlay unitOutlay = tableViewUnitOutlay.getSelectionModel().getSelectedItem();
         unitOutlay.setValue(stockStringCellEditEvent.getNewValue());
+    }
+
+    public void onProblemNameEdit(TableColumn.CellEditEvent<Problem, String> stockStringCellEditEvent) {
+        Problem problem = tableProblem.getSelectionModel().getSelectedItem();
+        problem.setName(stockStringCellEditEvent.getNewValue());
+    }
+
+    public void onProblemAmountEdit(TableColumn.CellEditEvent<Problem, Integer> stockStringCellEditEvent) {
+        Problem problem = tableProblem.getSelectionModel().getSelectedItem();
+        problem.setAmount(stockStringCellEditEvent.getNewValue());
+    }
+
+    public void onProblemPriceEdit(TableColumn.CellEditEvent<Problem, Double> stockStringCellEditEvent) {
+        Problem problem = tableProblem.getSelectionModel().getSelectedItem();
+        problem.setPrice(stockStringCellEditEvent.getNewValue());
     }
 
     @FXML
@@ -97,12 +122,19 @@ public class Controller {
         col_stockName.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_uoName.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_uoVal.setCellValueFactory(new PropertyValueFactory<>("value"));
-        tableViewStock.setItems(stockList);
+        col_problemName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_problemAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        col_problemPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         col_stockName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_uoName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_uoVal.setCellFactory(TextFieldTableCell.<UnitOutlay, Double>forTableColumn(new DoubleStringConverter()));
+        col_problemName.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_problemAmount.setCellFactory(TextFieldTableCell.<Problem, Integer>forTableColumn(new IntegerStringConverter()));
+        col_problemPrice.setCellFactory(TextFieldTableCell.<Problem, Double>forTableColumn(new DoubleStringConverter()));
 
+        tableViewStock.setItems(stockList);
+        tableProblem.setItems(problemList);
     }
 
 

@@ -8,10 +8,11 @@ import java.util.List;
 public class Stock {
 
     String name;
-    ObservableList<UnitOutlay> unitOutlayList = FXCollections.observableArrayList();
+    ObservableList<UnitOutlay> unitOutlayList;
 
     public Stock(String name) {
         this.name = name;
+        this.unitOutlayList = FXCollections.observableArrayList();
     }
 
     public String getName() {
