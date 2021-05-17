@@ -10,8 +10,8 @@ public class Stock {
     String name;
     ObservableList<UnitOutlay> unitOutlayList;
 
-    public Stock(String name) {
-        this.name = name;
+    public Stock() {
+        this.name = "...";
         this.unitOutlayList = FXCollections.observableArrayList();
     }
 

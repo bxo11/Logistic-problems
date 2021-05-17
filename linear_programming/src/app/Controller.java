@@ -6,7 +6,6 @@ import classes.UnitOutlay;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,9 +28,7 @@ public class Controller {
     ObservableList<Stock> stockList = FXCollections.observableArrayList();
     ObservableList<UnitOutlay> uoList = FXCollections.observableArrayList();
 
-    int problemSize = 2;
-    int[] amountArray = new int[problemSize];
-    int[] priceArray = new int[problemSize];
+    int problemSize = -1;
 
     public void problemAddButton() {
         Problem problem = new Problem();
@@ -40,37 +37,52 @@ public class Controller {
 
     public void problemDeleteButton() {
         int index = tableProblem.getSelectionModel().getSelectedIndex();
+        if (index == -1) {
+            System.out.println("Select problem");
+            return;
+        }
         problemList.remove(index);
     }
 
     public void stockAddButton() {
-        Stock stock = new Stock("...");
+        Stock stock = new Stock();
+        ObservableList<UnitOutlay> temp = stock.getUnitOutlayList();
+        for (Problem p : problemList) {
+            temp.add(new UnitOutlay(p.getName(), -1));
+        }
         stockList.add(stock);
     }
 
     public void stockDeleteButton() {
         int index = tableViewStock.getSelectionModel().getSelectedIndex();
+        if (index == -1) {
+            System.out.println("Select stock");
+            return;
+        }
         stockList.remove(index);
     }
 
     public void showUO() {
         Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
+        if (stock == null) {
+            System.out.println("Select stock");
+            return;
+        }
         uoList = stock.getUnitOutlayList();
         tableViewUnitOutlay.setItems(uoList);
     }
 
-
-    public void uoAddButton() {
-        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
-        UnitOutlay unitOutlay = new UnitOutlay("...",-1);
-        stock.getUnitOutlayList().add(unitOutlay);
-    }
-
-    public void uoDeleteButton() {
-        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
-        int index = tableViewUnitOutlay.getSelectionModel().getSelectedIndex();
-        stock.getUnitOutlayList().remove(index);
-    }
+//    public void uoAddButton() {
+//        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
+//        UnitOutlay unitOutlay = new UnitOutlay("...",-1);
+//        stock.getUnitOutlayList().add(unitOutlay);
+//    }
+//
+//    public void uoDeleteButton() {
+//        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
+//        int index = tableViewUnitOutlay.getSelectionModel().getSelectedIndex();
+//        stock.getUnitOutlayList().remove(index);
+//    }
 
     public void onStockNameEdit(TableColumn.CellEditEvent<Stock, String> stockStringCellEditEvent) {
         Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
@@ -104,21 +116,6 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        Stock tasma = new Stock("tasma");
-        ObservableList<UnitOutlay> tl = FXCollections.observableArrayList();
-        tl.add(new UnitOutlay("W1",1));
-        tl.add(new UnitOutlay("W2",2));
-        tasma.setUnitOutlayList(tl);
-
-        Stock rura =  new Stock("rura");
-        ObservableList<UnitOutlay> tl2 = FXCollections.observableArrayList();
-        tl2.add(new UnitOutlay("W1",3));
-        tl2.add(new UnitOutlay("W2",4));
-        rura.setUnitOutlayList(tl2);
-
-        stockList.add(tasma);
-        stockList.add(rura);
-
         col_stockName.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_uoName.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_uoVal.setCellValueFactory(new PropertyValueFactory<>("value"));
@@ -136,6 +133,5 @@ public class Controller {
         tableViewStock.setItems(stockList);
         tableProblem.setItems(problemList);
     }
-
 
 }
