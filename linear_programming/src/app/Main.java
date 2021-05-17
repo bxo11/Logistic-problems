@@ -16,7 +16,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("input.fxml"));
         Parent root = loader.load();
         controller = loader.getController();
-        primaryStage.setTitle("optymalny-asortyment-produckji");
+        primaryStage.setTitle("linear-problem");
         primaryStage.setScene(new Scene(root, 900, 500));
         primaryStage.show();
     }

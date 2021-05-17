@@ -4,11 +4,13 @@ public class Problem {
     String name;
     int amount;
     double price;
+    int maxAmount;
 
     public Problem() {
         this.name = "...";
         this.amount = -1;
         this.price = -1;
+        this.maxAmount = -1;
     }
 
     public String getName() {
@@ -33,5 +35,13 @@ public class Problem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getMaxAmount() {
+        return maxAmount;
+    }
+
+    public void setMaxAmount(int maxAmount) {
+        this.maxAmount = maxAmount;
     }
 }

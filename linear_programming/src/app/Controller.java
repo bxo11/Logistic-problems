@@ -16,19 +16,18 @@ import javafx.util.converter.IntegerStringConverter;
 public class Controller {
 
     public TableColumn<Stock, String> col_stockName;
+    public TableColumn<Stock, Integer> col_stockMaxProduction;
     public TableColumn<UnitOutlay, String> col_uoName;
     public TableColumn<UnitOutlay, Double> col_uoVal;
+    public TableColumn<Problem, String> col_problemName;
+    public TableColumn<Problem, Double> col_problemPrice;
+    public TableColumn<Problem, Integer> col_problemMaxAmount;
     public TableView<Stock> tableViewStock;
     public TableView<UnitOutlay> tableViewUnitOutlay;
     public TableView<Problem> tableProblem;
-    public TableColumn<Problem, String> col_problemName;
-    public TableColumn<Problem, Integer> col_problemAmount;
-    public TableColumn<Problem, Double> col_problemPrice;
     ObservableList<Problem> problemList = FXCollections.observableArrayList();
     ObservableList<Stock> stockList = FXCollections.observableArrayList();
     ObservableList<UnitOutlay> uoList = FXCollections.observableArrayList();
-
-    int problemSize = -1;
 
     public void problemAddButton() {
         Problem problem = new Problem();
@@ -89,6 +88,11 @@ public class Controller {
         stock.setName(stockStringCellEditEvent.getNewValue());
     }
 
+    public void onStockMaxProductionEdit(TableColumn.CellEditEvent<Stock, Integer> stockStringCellEditEvent) {
+        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
+        stock.setMaxProduction(stockStringCellEditEvent.getNewValue());
+    }
+
     public void onUONameEdit(TableColumn.CellEditEvent<UnitOutlay, String> stockStringCellEditEvent) {
         UnitOutlay unitOutlay = tableViewUnitOutlay.getSelectionModel().getSelectedItem();
         unitOutlay.setName(stockStringCellEditEvent.getNewValue());
@@ -104,9 +108,9 @@ public class Controller {
         problem.setName(stockStringCellEditEvent.getNewValue());
     }
 
-    public void onProblemAmountEdit(TableColumn.CellEditEvent<Problem, Integer> stockStringCellEditEvent) {
+    public void onProblemMaxAmountEdit(TableColumn.CellEditEvent<Problem, Integer> stockStringCellEditEvent) {
         Problem problem = tableProblem.getSelectionModel().getSelectedItem();
-        problem.setAmount(stockStringCellEditEvent.getNewValue());
+        problem.setMaxAmount(stockStringCellEditEvent.getNewValue());
     }
 
     public void onProblemPriceEdit(TableColumn.CellEditEvent<Problem, Double> stockStringCellEditEvent) {
@@ -117,17 +121,19 @@ public class Controller {
     @FXML
     public void initialize() {
         col_stockName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_stockMaxProduction.setCellValueFactory(new PropertyValueFactory<>("maxProduction"));
         col_uoName.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_uoVal.setCellValueFactory(new PropertyValueFactory<>("value"));
         col_problemName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_problemAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        col_problemMaxAmount.setCellValueFactory(new PropertyValueFactory<>("maxAmount"));
         col_problemPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         col_stockName.setCellFactory(TextFieldTableCell.forTableColumn());
+        col_stockMaxProduction.setCellFactory(TextFieldTableCell.<Stock, Integer>forTableColumn(new IntegerStringConverter()));
         col_uoName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_uoVal.setCellFactory(TextFieldTableCell.<UnitOutlay, Double>forTableColumn(new DoubleStringConverter()));
         col_problemName.setCellFactory(TextFieldTableCell.forTableColumn());
-        col_problemAmount.setCellFactory(TextFieldTableCell.<Problem, Integer>forTableColumn(new IntegerStringConverter()));
+        col_problemMaxAmount.setCellFactory(TextFieldTableCell.<Problem, Integer>forTableColumn(new IntegerStringConverter()));
         col_problemPrice.setCellFactory(TextFieldTableCell.<Problem, Double>forTableColumn(new DoubleStringConverter()));
 
         tableViewStock.setItems(stockList);
