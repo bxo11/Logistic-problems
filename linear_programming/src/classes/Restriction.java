@@ -5,7 +5,7 @@ import javafx.scene.control.ComboBox;
 
 public class Restriction {
     String variable;
-    ComboBox sign;
+    ComboBox comboBoxSign;
     double lowerLimit;
     double upperLimit;
 
@@ -13,7 +13,7 @@ public class Restriction {
         this.variable = variable;
         this.lowerLimit = -1;
         this.upperLimit = -1;
-        this.sign = new ComboBox(FXCollections.observableArrayList(ConstrainOperators.values()));
+        this.comboBoxSign = new ComboBox(FXCollections.observableArrayList("=","<=",">=","<",">"));
     }
 
     public String getVariable() {
@@ -24,12 +24,12 @@ public class Restriction {
         this.variable = variable;
     }
 
-    public ComboBox getSign() {
-        return sign;
+    public ComboBox getComboBoxSign() {
+        return comboBoxSign;
     }
 
-    public void setSign(ComboBox sign) {
-        this.sign = sign;
+    public void setComboBoxSign(ComboBox comboBoxSign) {
+        this.comboBoxSign = comboBoxSign;
     }
 
     public double getLowerLimit() {

@@ -1,12 +1,12 @@
 package app;
-import classes.Restriction;
+
 import classes.Problem;
+import classes.Restriction;
 import classes.Stock;
 import classes.UnitOutlay;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -145,7 +145,7 @@ public class Controller {
         col_problemName.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_problemPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         col_restrictionVariable.setCellValueFactory(new PropertyValueFactory<>("variable"));
-        col_restrictionSign.setCellValueFactory(new PropertyValueFactory<>("sign"));
+        col_restrictionSign.setCellValueFactory(new PropertyValueFactory<>("comboBoxSign"));
         col_restrictionLowLim.setCellValueFactory(new PropertyValueFactory<>("lowerLimit"));
         col_restrictionUpLim.setCellValueFactory(new PropertyValueFactory<>("upperLimit"));
 
