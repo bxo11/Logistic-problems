@@ -85,3 +85,4 @@ modules.xml
 *.ipr
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+iml
+linear_programming/.idea/libraries/lib1.xml

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -74,8 +74,7 @@
                     <columns>
                       <TableColumn fx:id="col_restrictionVariable" editable="false" prefWidth="80.00003051757812" text="Variable" />
                       <TableColumn fx:id="col_restrictionSign" prefWidth="70.0" text="Sign" />
-                        <TableColumn fx:id="col_restrictionLowLim" onEditCommit="#onRestrictionLowerLimitEdit" prefWidth="75.0" text="Lower limit" />
-                        <TableColumn fx:id="col_restrictionUpLim" onEditCommit="#onRestrictionUpperLimitEdit" prefWidth="127.0" text="Upper limit/Equal" />
+                        <TableColumn fx:id="col_restrictionLimit" onEditCommit="#onRestrictionLimitEdit" prefWidth="75.0" text="Limit" />
                     </columns>
                   </TableView>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">

@@ -7,6 +7,7 @@ public class Problem {
     String name;
     static int iter = 1;
     int amount;
+    int maxAmount;
     double price;
 
     public Problem() {
@@ -41,4 +42,11 @@ public class Problem {
         this.price = price;
     }
 
+    public int getMaxAmount() {
+        return maxAmount;
+    }
+
+    public void setMaxAmount(int maxAmount) {
+        this.maxAmount = maxAmount;
+    }
 }

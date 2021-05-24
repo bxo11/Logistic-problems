@@ -6,13 +6,11 @@ import javafx.scene.control.ComboBox;
 public class Restriction {
     String variable;
     ComboBox comboBoxSign;
-    double lowerLimit;
-    double upperLimit;
+    double limit;
 
     public Restriction(String variable) {
         this.variable = variable;
-        this.lowerLimit = -1;
-        this.upperLimit = -1;
+        this.limit = -1;
         this.comboBoxSign = new ComboBox(FXCollections.observableArrayList("=","<=",">=","<",">"));
     }
 
@@ -32,19 +30,11 @@ public class Restriction {
         this.comboBoxSign = comboBoxSign;
     }
 
-    public double getLowerLimit() {
-        return lowerLimit;
+    public double getLimit() {
+        return limit;
     }
 
-    public void setLowerLimit(double lowerLimit) {
-        this.lowerLimit = lowerLimit;
-    }
-
-    public double getUpperLimit() {
-        return upperLimit;
-    }
-
-    public void setUpperLimit(double upperLimit) {
-        this.upperLimit = upperLimit;
+    public void setLimit(double limit) {
+        this.limit = limit;
     }
 }

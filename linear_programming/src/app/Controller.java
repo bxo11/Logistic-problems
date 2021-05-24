@@ -18,7 +18,6 @@ import lpsolve.LpSolve;
 import lpsolve.LpSolveException;
 
 
-
 public class Controller {
 
     public TableColumn<Stock, String> col_stockName;
@@ -29,8 +28,7 @@ public class Controller {
     public TableColumn<Problem, Double> col_problemPrice;
     public TableColumn<Restriction, String> col_restrictionVariable;
     public TableColumn<Restriction, String> col_restrictionSign;
-    public TableColumn<Restriction, Double> col_restrictionLowLim;
-    public TableColumn<Restriction, Double> col_restrictionUpLim;
+    public TableColumn<Restriction, Double> col_restrictionLimit;
     public TableView<Stock> tableViewStock;
     public TableView<UnitOutlay> tableViewUnitOutlay;
     public TableView<Problem> tableViewProblem;
@@ -83,25 +81,25 @@ public class Controller {
             double[] row = new double[nCol];
 
             lp = LpSolve.makeLp(0, nCol);
-            if(lp.getLp() == 0)
+            if (lp.getLp() == 0)
                 ret = 1;
 
-            if(ret == 0) {
+            if (ret == 0) {
                 j = 0;
 
-                for (Problem problem: problemList) {
+                for (Problem problem : problemList) {
                     lp.setColName(++j, problem.getName());
                 }
             }
 
-            if(ret == 0) {
+            if (ret == 0) {
                 lp.setAddRowmode(true);
 
-                for (Stock stock: stockList) {
+                for (Stock stock : stockList) {
                     j = 0;
                     ObservableList<UnitOutlay> outlayList = stock.getUnitOutlayList();
 
-                    for (int i = 0; i < nCol; ++i){
+                    for (int i = 0; i < nCol; ++i) {
                         colno[j] = ++j;
                         row[j] = outlayList.get(j - 1).getValue();
                     }
@@ -109,22 +107,22 @@ public class Controller {
                 }
             }
 
-            if(ret == 0) {
+            if (ret == 0) {
                 j = 0;
 
-                for (Problem problem: problemList) {
+                for (Problem problem : problemList) {
                     colno[0] = 1;
                     row[1] = 1;
                     lp.addConstraintex(j, row, colno, LpSolve.LE, problem.getMaxAmount());
                 }
             }
 
-            if(ret == 0) {
+            if (ret == 0) {
                 lp.setAddRowmode(false);
 
                 j = 0;
 
-                for (Problem problem: problemList) {
+                for (Problem problem : problemList) {
                     colno[j] = ++j;
                     row[j] = problem.getPrice();
                 }
@@ -132,7 +130,7 @@ public class Controller {
                 lp.setObjFnex(j, row, colno);
             }
 
-            if(ret == 0) {
+            if (ret == 0) {
                 lp.setMaxim();
 
                 lp.setVerbose(LpSolve.IMPORTANT);
@@ -140,20 +138,20 @@ public class Controller {
                 ret = lp.solve();
             }
 
-            if(ret == 0) {
+            if (ret == 0) {
                 income.setText(String.valueOf(lp.getObjective()));
 
                 lp.getVariables(row);
-                for(j = 0; j < nCol; j++)
+                for (j = 0; j < nCol; j++)
                     System.out.println(lp.getColName(j + 1) + ": " + row[j]);
             }
 
-            if(lp.getLp() != 0)
+            if (lp.getLp() != 0)
                 lp.deleteLp();
-        }
-        catch (LpSolveException e) {
+        } catch (LpSolveException e) {
             e.printStackTrace();
         }
+    }
 
     public void restrictionAddButton() {
         Problem problem = tableViewProblem.getSelectionModel().getSelectedItem();
@@ -214,14 +212,9 @@ public class Controller {
         problem.setPrice(event.getNewValue());
     }
 
-    public void onRestrictionLowerLimitEdit(TableColumn.CellEditEvent<Restriction, Double> event) {
+    public void onRestrictionLimitEdit(TableColumn.CellEditEvent<Restriction, Double> event) {
         Restriction restriction = tableViewRestriction.getSelectionModel().getSelectedItem();
-        restriction.setLowerLimit(event.getNewValue());
-    }
-
-    public void onRestrictionUpperLimitEdit(TableColumn.CellEditEvent<Restriction, Double> event) {
-        Restriction restriction = tableViewRestriction.getSelectionModel().getSelectedItem();
-        restriction.setUpperLimit(event.getNewValue());
+        restriction.setLimit(event.getNewValue());
     }
 
     @FXML
@@ -234,8 +227,7 @@ public class Controller {
         col_problemPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         col_restrictionVariable.setCellValueFactory(new PropertyValueFactory<>("variable"));
         col_restrictionSign.setCellValueFactory(new PropertyValueFactory<>("comboBoxSign"));
-        col_restrictionLowLim.setCellValueFactory(new PropertyValueFactory<>("lowerLimit"));
-        col_restrictionUpLim.setCellValueFactory(new PropertyValueFactory<>("upperLimit"));
+        col_restrictionLimit.setCellValueFactory(new PropertyValueFactory<>("limit"));
 
         col_stockName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_stockMaxProduction.setCellFactory(TextFieldTableCell.<Stock, Integer>forTableColumn(new IntegerStringConverter()));
@@ -243,13 +235,11 @@ public class Controller {
         col_uoVal.setCellFactory(TextFieldTableCell.<UnitOutlay, Double>forTableColumn(new DoubleStringConverter()));
         col_problemName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_problemPrice.setCellFactory(TextFieldTableCell.<Problem, Double>forTableColumn(new DoubleStringConverter()));
-        col_restrictionLowLim.setCellFactory(TextFieldTableCell.<Restriction, Double>forTableColumn(new DoubleStringConverter()));
-        col_restrictionUpLim.setCellFactory(TextFieldTableCell.<Restriction, Double>forTableColumn(new DoubleStringConverter()));
+        col_restrictionLimit.setCellFactory(TextFieldTableCell.<Restriction, Double>forTableColumn(new DoubleStringConverter()));
 
         tableViewStock.setItems(stockList);
         tableViewProblem.setItems(problemList);
         tableViewRestriction.setItems(restrictionList);
     }
-
 
 }
