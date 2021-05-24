@@ -1,17 +1,18 @@
 package classes;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Problem {
     String name;
     static int iter = 1;
     int amount;
     double price;
-    int maxAmount;
 
     public Problem() {
         this.name = "W" + iter;
         this.amount = -1;
         this.price = -1;
-        this.maxAmount = -1;
 
         iter++;
     }
@@ -40,11 +41,4 @@ public class Problem {
         this.price = price;
     }
 
-    public int getMaxAmount() {
-        return maxAmount;
-    }
-
-    public void setMaxAmount(int maxAmount) {
-        this.maxAmount = maxAmount;
-    }
 }
