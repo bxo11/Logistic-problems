@@ -11,8 +11,8 @@
 #
 # Change the paths below this line and you should be ready to go!
 # -------------------------------------------------------------------
-LPSOLVE_DIR=/Users/spkane/Desktop/mac/downloads/lp_solve/lp_solve_5.5
-JDK_DIR=/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers
+LPSOLVE_DIR=/Users/krzysiu/Desktop/projekty/logistyka/logistics-applications/linear_programming/libraries/lp_solve_5.5_java
+JDK_DIR=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers
 
 # OK, here we go!
 

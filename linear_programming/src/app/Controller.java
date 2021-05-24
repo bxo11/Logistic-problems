@@ -10,8 +10,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.text.Text;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
+import lpsolve.LpSolve;
+import lpsolve.LpSolveException;
+
+
 
 public class Controller {
 
@@ -25,6 +30,7 @@ public class Controller {
     public TableView<Stock> tableViewStock;
     public TableView<UnitOutlay> tableViewUnitOutlay;
     public TableView<Problem> tableProblem;
+    public Text income;
     ObservableList<Problem> problemList = FXCollections.observableArrayList();
     ObservableList<Stock> stockList = FXCollections.observableArrayList();
     ObservableList<UnitOutlay> uoList = FXCollections.observableArrayList();
@@ -59,6 +65,89 @@ public class Controller {
             return;
         }
         stockList.remove(index);
+    }
+
+    public void buttonSolve() {
+        try {
+            LpSolve lp;
+            int nCol, j, ret = 0;
+            nCol = problemList.size();
+
+            int[] colno = new int[nCol];
+            double[] row = new double[nCol];
+
+            lp = LpSolve.makeLp(0, nCol);
+            if(lp.getLp() == 0)
+                ret = 1;
+
+            if(ret == 0) {
+                j = 0;
+
+                for (Problem problem: problemList) {
+                    lp.setColName(++j, problem.getName());
+                }
+            }
+
+            if(ret == 0) {
+                lp.setAddRowmode(true);
+
+                for (Stock stock: stockList) {
+                    j = 0;
+                    ObservableList<UnitOutlay> outlayList = stock.getUnitOutlayList();
+
+                    for (int i = 0; i < nCol; ++i){
+                        colno[j] = ++j;
+                        row[j] = outlayList.get(j - 1).getValue();
+                    }
+                    lp.addConstraintex(j, row, colno, LpSolve.LE, stock.getMaxProduction());
+                }
+            }
+
+            if(ret == 0) {
+                j = 0;
+
+                for (Problem problem: problemList) {
+                    colno[0] = 1;
+                    row[1] = 1;
+                    lp.addConstraintex(j, row, colno, LpSolve.LE, problem.getMaxAmount());
+                }
+            }
+
+            if(ret == 0) {
+                lp.setAddRowmode(false);
+
+                j = 0;
+
+                for (Problem problem: problemList) {
+                    colno[j] = ++j;
+                    row[j] = problem.getPrice();
+                }
+
+                lp.setObjFnex(j, row, colno);
+            }
+
+            if(ret == 0) {
+                lp.setMaxim();
+
+                lp.setVerbose(LpSolve.IMPORTANT);
+
+                ret = lp.solve();
+            }
+
+            if(ret == 0) {
+                income.setText(String.valueOf(lp.getObjective()));
+
+                lp.getVariables(row);
+                for(j = 0; j < nCol; j++)
+                    System.out.println(lp.getColName(j + 1) + ": " + row[j]);
+            }
+
+            if(lp.getLp() != 0)
+                lp.deleteLp();
+        }
+        catch (LpSolveException e) {
+            e.printStackTrace();
+        }
     }
 
     public void showUO() {
