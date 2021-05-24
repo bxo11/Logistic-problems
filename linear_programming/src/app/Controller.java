@@ -1,5 +1,5 @@
 package app;
-
+import lpsolve.*;
 import classes.Problem;
 import classes.Stock;
 import classes.UnitOutlay;
@@ -70,18 +70,6 @@ public class Controller {
         uoList = stock.getUnitOutlayList();
         tableViewUnitOutlay.setItems(uoList);
     }
-
-//    public void uoAddButton() {
-//        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
-//        UnitOutlay unitOutlay = new UnitOutlay("...",-1);
-//        stock.getUnitOutlayList().add(unitOutlay);
-//    }
-//
-//    public void uoDeleteButton() {
-//        Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
-//        int index = tableViewUnitOutlay.getSelectionModel().getSelectedIndex();
-//        stock.getUnitOutlayList().remove(index);
-//    }
 
     public void onStockNameEdit(TableColumn.CellEditEvent<Stock, String> stockStringCellEditEvent) {
         Stock stock = tableViewStock.getSelectionModel().getSelectedItem();

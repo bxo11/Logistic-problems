@@ -2,15 +2,18 @@ package classes;
 
 public class Problem {
     String name;
+    static int iter = 1;
     int amount;
     double price;
     int maxAmount;
 
     public Problem() {
-        this.name = "...";
+        this.name = "W" + iter;
         this.amount = -1;
         this.price = -1;
         this.maxAmount = -1;
+
+        iter++;
     }
 
     public String getName() {
