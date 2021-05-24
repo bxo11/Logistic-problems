@@ -53,7 +53,7 @@ public class Controller {
         Stock stock = new Stock();
         ObservableList<UnitOutlay> temp = stock.getUnitOutlayList();
         for (Problem p : problemList) {
-            temp.add(new UnitOutlay(p.getName(), -1));
+            temp.add(new UnitOutlay(p.getName()));
         }
         stockList.add(stock);
     }

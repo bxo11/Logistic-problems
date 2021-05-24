@@ -5,9 +5,9 @@ public class UnitOutlay {
     double value;
     int amount;
 
-    public UnitOutlay(String name, double value) {
+    public UnitOutlay(String name) {
         this.name = name;
-        this.value = value;
+        this.value = -1;
     }
 
     public String getName() {
