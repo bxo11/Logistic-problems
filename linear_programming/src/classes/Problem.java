@@ -12,7 +12,7 @@ public class Problem {
 
     public Problem() {
         this.name = "W" + iter;
-        this.amount = -1;
+        this.amount = 1;
         this.price = -1;
 
         iter++;

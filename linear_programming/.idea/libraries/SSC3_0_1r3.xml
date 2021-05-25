@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="lpsolve-5.5.2.0">
+  <library name="SSC3.0.1r3">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/lpsolve-5.5.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/SSC3.0.1r3.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

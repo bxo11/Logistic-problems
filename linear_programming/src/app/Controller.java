@@ -14,9 +14,14 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
-import lpsolve.LpSolve;
-import lpsolve.LpSolveException;
+import it.ssc.log.SscLogger;
+import it.ssc.pl.milp.LP;
+import it.ssc.pl.milp.Solution;
+import it.ssc.pl.milp.SolutionType;
+import it.ssc.pl.milp.Variable;
+import it.ssc.ref.InputString;
 
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -72,86 +77,51 @@ public class Controller {
         stockList.remove(index);
     }
 
-    public void buttonSolve() {
-        try {
-            LpSolve lp;
-            int nCol, j, ret = 0;
-            nCol = problemList.size();
+    public void buttonSolve() throws Exception {
+        ArrayList< String > constraints = new ArrayList< String >();
 
-            int[] colno = new int[nCol];
-            double[] row = new double[nCol];
-
-            lp = LpSolve.makeLp(0, nCol);
-            if (lp.getLp() == 0)
-                ret = 1;
-
-            if (ret == 0) {
-                j = 0;
-
-                for (Problem problem : problemList) {
-                    lp.setColName(++j, problem.getName());
-                }
-            }
-
-            if (ret == 0) {
-                lp.setAddRowmode(true);
-
-                for (Stock stock : stockList) {
-                    j = 0;
-                    ObservableList<UnitOutlay> outlayList = stock.getUnitOutlayList();
-
-                    for (int i = 0; i < nCol; ++i) {
-                        colno[j] = ++j;
-                        row[j] = outlayList.get(j - 1).getValue();
-                    }
-                    lp.addConstraintex(j, row, colno, LpSolve.LE, stock.getMaxProduction());
-                }
-            }
-
-            if (ret == 0) {
-                j = 0;
-
-                for (Problem problem : problemList) {
-                    colno[0] = 1;
-                    row[1] = 1;
-                    lp.addConstraintex(j, row, colno, LpSolve.LE, problem.getMaxAmount());
-                }
-            }
-
-            if (ret == 0) {
-                lp.setAddRowmode(false);
-
-                j = 0;
-
-                for (Problem problem : problemList) {
-                    colno[j] = ++j;
-                    row[j] = problem.getPrice();
-                }
-
-                lp.setObjFnex(j, row, colno);
-            }
-
-            if (ret == 0) {
-                lp.setMaxim();
-
-                lp.setVerbose(LpSolve.IMPORTANT);
-
-                ret = lp.solve();
-            }
-
-            if (ret == 0) {
-                income.setText(String.valueOf(lp.getObjective()));
-
-                lp.getVariables(row);
-                for (j = 0; j < nCol; j++)
-                    System.out.println(lp.getColName(j + 1) + ": " + row[j]);
-            }
-
-            if (lp.getLp() != 0)
-                lp.deleteLp();
-        } catch (LpSolveException e) {
-            e.printStackTrace();
+        //goal function
+        String goalFunction = "max: ";
+        for(Problem p : problemList){
+            double c = p.getAmount() * +p.getPrice();
+            goalFunction+= c+p.getName()+" + ";
         }
+        goalFunction = goalFunction.substring(0, goalFunction.length() - 3);
+        System.out.println(goalFunction);
+        constraints.add(goalFunction);
+
+        //material constains
+        for(Restriction r : restrictionList){
+            String res = "";
+            res+= r.getVariable() +r.getComboBoxSign().getSelectionModel().getSelectedItem()+r.getLimit();
+            System.out.println(res);
+            constraints.add(res);
+        }
+
+        //stock constains
+        for(Stock s : stockList){
+            String sto = "";
+            for(UnitOutlay u : s.getUnitOutlayList()){
+                sto += u.getValue()+u.getName() +" + ";
+            }
+            sto = sto.substring(0, sto.length() - 3);
+            sto += " <= " + s.getMaxProduction();
+            System.out.println(sto);
+            constraints.add(sto);
+        }
+
+        LP lp = new LP(constraints);
+        SolutionType solution_type=lp.resolve();
+
+        if(solution_type==SolutionType.OPTIMUM) {
+            Solution soluzione=lp.getSolution();
+            for(Variable var:soluzione.getVariables()) {
+                SscLogger.log("Variable name :"+var.getName() + " value :"+var.getValue());
+            }
+            SscLogger.log("Value:"+soluzione.getOptimumValue());
+        }
+
+
     }
 
     public void restrictionAddButton() {

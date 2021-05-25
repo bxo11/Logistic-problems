@@ -2,7 +2,7 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
-/../../../../../../:\Users\Krzysiek\Desktop\transportation_problem\.idea/dataSources/
+/../../../../../:\Repos\logistics-applications\linear-programming\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
