@@ -19,7 +19,6 @@ import it.ssc.pl.milp.LP;
 import it.ssc.pl.milp.Solution;
 import it.ssc.pl.milp.SolutionType;
 import it.ssc.pl.milp.Variable;
-import it.ssc.ref.InputString;
 
 import java.util.ArrayList;
 
