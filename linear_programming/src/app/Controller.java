@@ -20,6 +20,7 @@ import lpsolve.LpSolveException;
 
 public class Controller {
 
+    public TableColumn<Problem, Integer> col_problemMaxAmount;
     public TableColumn<Stock, String> col_stockName;
     public TableColumn<Stock, Integer> col_stockMaxProduction;
     public TableColumn<UnitOutlay, String> col_uoName;
@@ -217,6 +218,11 @@ public class Controller {
         restriction.setLimit(event.getNewValue());
     }
 
+    public void onProblemMaxAmountEdit(TableColumn.CellEditEvent<Problem, Integer> stockStringCellEditEvent) {
+        Problem problem = tableViewProblem.getSelectionModel().getSelectedItem();
+        problem.setMaxAmount(stockStringCellEditEvent.getNewValue());
+    }
+
     @FXML
     public void initialize() {
         col_stockName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -228,6 +234,7 @@ public class Controller {
         col_restrictionVariable.setCellValueFactory(new PropertyValueFactory<>("variable"));
         col_restrictionSign.setCellValueFactory(new PropertyValueFactory<>("comboBoxSign"));
         col_restrictionLimit.setCellValueFactory(new PropertyValueFactory<>("limit"));
+        col_problemMaxAmount.setCellValueFactory(new PropertyValueFactory<>("maxAmount"));
 
         col_stockName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_stockMaxProduction.setCellFactory(TextFieldTableCell.<Stock, Integer>forTableColumn(new IntegerStringConverter()));
@@ -236,6 +243,7 @@ public class Controller {
         col_problemName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_problemPrice.setCellFactory(TextFieldTableCell.<Problem, Double>forTableColumn(new DoubleStringConverter()));
         col_restrictionLimit.setCellFactory(TextFieldTableCell.<Restriction, Double>forTableColumn(new DoubleStringConverter()));
+        col_problemMaxAmount.setCellFactory(TextFieldTableCell.<Problem, Integer>forTableColumn(new IntegerStringConverter()));
 
         tableViewStock.setItems(stockList);
         tableViewProblem.setItems(problemList);

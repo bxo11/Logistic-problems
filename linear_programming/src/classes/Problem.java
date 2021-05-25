@@ -7,7 +7,7 @@ public class Problem {
     String name;
     static int iter = 1;
     int amount;
-    int maxAmount;
+    int maxAmount; //usunac
     double price;
 
     public Problem() {

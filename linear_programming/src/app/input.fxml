@@ -42,6 +42,7 @@
                     <columns>
                       <TableColumn fx:id="col_problemName" onEditCommit="#onProblemNameEdit" prefWidth="132.99996376037598" text="Material Name" />
                         <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="100.0" text="Price" />
+                        <TableColumn fx:id="col_problemMaxAmount" onEditCommit="#onProblemMaxAmountEdit" prefWidth="75.0" text="Column X" />
                     </columns>
                   </TableView>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
