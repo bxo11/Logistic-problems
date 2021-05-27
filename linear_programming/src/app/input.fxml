@@ -40,9 +40,8 @@
                <children>
                   <TableView fx:id="tableViewProblem" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_problemName" onEditCommit="#onProblemNameEdit" prefWidth="132.99996376037598" text="Material Name" />
+                      <TableColumn fx:id="col_problemName" onEditCommit="#onProblemNameEdit" prefWidth="132.99996376037598" text="Name" />
                         <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="100.0" text="Price" />
-                        <TableColumn fx:id="col_problemMaxAmount" onEditCommit="#onProblemMaxAmountEdit" prefWidth="75.0" text="Column X" />
                     </columns>
                   </TableView>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -117,13 +116,13 @@
                <children>
                   <TableView fx:id="tableViewStock" editable="true" onMouseClicked="#showUO" prefHeight="251.0" prefWidth="162.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_stockName" onEditCommit="#onStockNameEdit" prefWidth="83.99997138977051" text="Stock Name" />
+                      <TableColumn fx:id="col_stockName" onEditCommit="#onStockNameEdit" prefWidth="83.99997138977051" text="Stock" />
                         <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="96.99999237060547" text="Max Production" />
                     </columns>
                   </TableView>
                   <TableView fx:id="tableViewUnitOutlay" editable="true" prefHeight="251.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="119.0" sortable="false" text="Material Name" />
+                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="119.0" sortable="false" text="Name" />
                       <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="114.0" sortable="false" text="Value" />
                     </columns>
                   </TableView>
