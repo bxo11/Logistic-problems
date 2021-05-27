@@ -15,8 +15,6 @@ public class Main extends Application {
         primaryStage.setTitle("Linear programming");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
-
-       System.out.println( "w4".matches("[a-zA-Z]*[0-9]"));
     }
 
 

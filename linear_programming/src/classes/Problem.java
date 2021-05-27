@@ -11,7 +11,7 @@ public class Problem {
     double price;
 
     public Problem() {
-        this.name = "x" + iter;
+        this.name = "X" + iter;
         this.amount = 1;
         this.price = 1;
 

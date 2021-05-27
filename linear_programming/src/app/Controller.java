@@ -96,10 +96,10 @@ public class Controller {
         for (Restriction r : restrictionList) {
             Object sign = r.getComboBoxSign().getSelectionModel().getSelectedItem();
             String res = "";
-            if (r.getLimit().matches("[a-zA-Z]*[0-9]")) {
-                res += r.getVariable() + "-" + r.getLimit() + sign + "0";
-            } else {
+            if (r.getLimit().matches("^[0-9]*$")) {
                 res += r.getVariable() + sign + r.getLimit();
+            } else {
+                res += r.getVariable() + "-" + r.getLimit() + sign + "0";
             }
             System.out.println(res);
             constraints.add(res);
@@ -135,6 +135,7 @@ public class Controller {
             SscLogger.log("Value:" + soluzione.getOptimumValue());
         }
         tableViewResult.setItems(problemList);
+        tableViewResult.refresh();
     }
 
     public void restrictionAddButton() {
@@ -186,11 +187,6 @@ public class Controller {
         unitOutlay.setValue(event.getNewValue());
     }
 
-    public void onProblemNameEdit(TableColumn.CellEditEvent<Problem, String> event) {
-        Problem problem = tableViewProblem.getSelectionModel().getSelectedItem();
-        problem.setName(event.getNewValue());
-    }
-
     public void onProblemPriceEdit(TableColumn.CellEditEvent<Problem, Double> event) {
         Problem problem = tableViewProblem.getSelectionModel().getSelectedItem();
         problem.setPrice(event.getNewValue());
@@ -219,7 +215,6 @@ public class Controller {
         col_stockMaxProduction.setCellFactory(TextFieldTableCell.<Stock, Integer>forTableColumn(new IntegerStringConverter()));
         col_uoName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_uoVal.setCellFactory(TextFieldTableCell.<UnitOutlay, Double>forTableColumn(new DoubleStringConverter()));
-        col_problemName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_problemPrice.setCellFactory(TextFieldTableCell.<Problem, Double>forTableColumn(new DoubleStringConverter()));
         col_restrictionLimit.setCellFactory(TextFieldTableCell.forTableColumn());
 

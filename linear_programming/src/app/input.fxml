@@ -40,7 +40,7 @@
                <children>
                   <TableView fx:id="tableViewProblem" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_problemName" onEditCommit="#onProblemNameEdit" prefWidth="132.99996376037598" text="Name" />
+                      <TableColumn fx:id="col_problemName" editable="false" prefWidth="132.99996376037598" text="Name" />
                         <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="100.0" text="Price" />
                     </columns>
                   </TableView>
