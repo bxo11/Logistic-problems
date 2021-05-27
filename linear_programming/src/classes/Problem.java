@@ -1,18 +1,19 @@
 package classes;
 
+import it.ssc.log.SscLogger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Problem {
     String name;
     static int iter = 1;
-    int amount;
+    double amount;
     double price;
 
     public Problem() {
         this.name = "W" + iter;
         this.amount = 1;
-        this.price = -1;
+        this.price = 1;
 
         iter++;
     }
@@ -25,11 +26,11 @@ public class Problem {
         this.name = name;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

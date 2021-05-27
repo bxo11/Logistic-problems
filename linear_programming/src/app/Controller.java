@@ -33,11 +33,15 @@ public class Controller {
     public TableColumn<Restriction, String> col_restrictionVariable;
     public TableColumn<Restriction, String> col_restrictionSign;
     public TableColumn<Restriction, Double> col_restrictionLimit;
+    public TableColumn<Problem, String> col_resultName;
+    public TableColumn<Problem, Double> col_resultAmount;
     public TableView<Stock> tableViewStock;
     public TableView<UnitOutlay> tableViewUnitOutlay;
     public TableView<Problem> tableViewProblem;
     public TableView<Restriction> tableViewRestriction;
+    public TableView<Problem> tableViewResult;
     public Text income;
+
     ObservableList<Problem> problemList = FXCollections.observableArrayList();
     ObservableList<Stock> stockList = FXCollections.observableArrayList();
     ObservableList<UnitOutlay> uoList = FXCollections.observableArrayList();
@@ -81,7 +85,7 @@ public class Controller {
         //goal function
         String goalFunction = "max: ";
         for(Problem p : problemList){
-            double c = p.getAmount() * +p.getPrice();
+            double c = p.getPrice();
             goalFunction+= c+p.getName()+" + ";
         }
         goalFunction = goalFunction.substring(0, goalFunction.length() - 3);
@@ -114,12 +118,18 @@ public class Controller {
         if(solution_type==SolutionType.OPTIMUM) {
             Solution soluzione=lp.getSolution();
             for(Variable var:soluzione.getVariables()) {
+                for(Problem p : problemList){
+                    if (var.getName().equals(p.getName())) {
+                        p.setAmount(var.getValue());
+                        break;
+                    }
+                }
                 SscLogger.log("Variable name :"+var.getName() + " value :"+var.getValue());
             }
+            income.setText(String.valueOf(soluzione.getOptimumValue()));
             SscLogger.log("Value:"+soluzione.getOptimumValue());
         }
-
-
+        tableViewResult.setItems(problemList);
     }
 
     public void restrictionAddButton() {
@@ -197,6 +207,8 @@ public class Controller {
         col_restrictionVariable.setCellValueFactory(new PropertyValueFactory<>("variable"));
         col_restrictionSign.setCellValueFactory(new PropertyValueFactory<>("comboBoxSign"));
         col_restrictionLimit.setCellValueFactory(new PropertyValueFactory<>("limit"));
+        col_resultName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_resultAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
 
         col_stockName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_stockMaxProduction.setCellFactory(TextFieldTableCell.<Stock, Integer>forTableColumn(new IntegerStringConverter()));
