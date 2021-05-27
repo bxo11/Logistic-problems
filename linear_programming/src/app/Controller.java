@@ -4,6 +4,11 @@ import classes.Problem;
 import classes.Restriction;
 import classes.Stock;
 import classes.UnitOutlay;
+import it.ssc.log.SscLogger;
+import it.ssc.pl.milp.LP;
+import it.ssc.pl.milp.Solution;
+import it.ssc.pl.milp.SolutionType;
+import it.ssc.pl.milp.Variable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,11 +19,6 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
-import it.ssc.log.SscLogger;
-import it.ssc.pl.milp.LP;
-import it.ssc.pl.milp.Solution;
-import it.ssc.pl.milp.SolutionType;
-import it.ssc.pl.milp.Variable;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class Controller {
     public TableColumn<Problem, Double> col_problemPrice;
     public TableColumn<Restriction, String> col_restrictionVariable;
     public TableColumn<Restriction, String> col_restrictionSign;
-    public TableColumn<Restriction, Double> col_restrictionLimit;
+    public TableColumn<Restriction, String> col_restrictionLimit;
     public TableColumn<Problem, String> col_resultName;
     public TableColumn<Problem, Double> col_resultAmount;
     public TableView<Stock> tableViewStock;
@@ -80,31 +80,36 @@ public class Controller {
     }
 
     public void buttonSolve() throws Exception {
-        ArrayList< String > constraints = new ArrayList< String >();
+        ArrayList<String> constraints = new ArrayList<String>();
 
         //goal function
         String goalFunction = "max: ";
-        for(Problem p : problemList){
+        for (Problem p : problemList) {
             double c = p.getPrice();
-            goalFunction+= c+p.getName()+" + ";
+            goalFunction += c + p.getName() + " + ";
         }
         goalFunction = goalFunction.substring(0, goalFunction.length() - 3);
         System.out.println(goalFunction);
         constraints.add(goalFunction);
 
         //material constains
-        for(Restriction r : restrictionList){
+        for (Restriction r : restrictionList) {
+            Object sign = r.getComboBoxSign().getSelectionModel().getSelectedItem();
             String res = "";
-            res+= r.getVariable() +r.getComboBoxSign().getSelectionModel().getSelectedItem()+r.getLimit();
+            if (r.getLimit().matches("[a-zA-Z]*[0-9]")) {
+                res += r.getVariable() + "-" + r.getLimit() + sign + "0";
+            } else {
+                res += r.getVariable() + sign + r.getLimit();
+            }
             System.out.println(res);
             constraints.add(res);
         }
 
         //stock constains
-        for(Stock s : stockList){
+        for (Stock s : stockList) {
             String sto = "";
-            for(UnitOutlay u : s.getUnitOutlayList()){
-                sto += u.getValue()+u.getName() +" + ";
+            for (UnitOutlay u : s.getUnitOutlayList()) {
+                sto += u.getValue() + u.getName() + " + ";
             }
             sto = sto.substring(0, sto.length() - 3);
             sto += " <= " + s.getMaxProduction();
@@ -113,21 +118,21 @@ public class Controller {
         }
 
         LP lp = new LP(constraints);
-        SolutionType solution_type=lp.resolve();
+        SolutionType solution_type = lp.resolve();
 
-        if(solution_type==SolutionType.OPTIMUM) {
-            Solution soluzione=lp.getSolution();
-            for(Variable var:soluzione.getVariables()) {
-                for(Problem p : problemList){
+        if (solution_type == SolutionType.OPTIMUM) {
+            Solution soluzione = lp.getSolution();
+            for (Variable var : soluzione.getVariables()) {
+                for (Problem p : problemList) {
                     if (var.getName().equals(p.getName())) {
                         p.setAmount(var.getValue());
                         break;
                     }
                 }
-                SscLogger.log("Variable name :"+var.getName() + " value :"+var.getValue());
+                SscLogger.log("Variable name :" + var.getName() + " value :" + var.getValue());
             }
             income.setText(String.valueOf(soluzione.getOptimumValue()));
-            SscLogger.log("Value:"+soluzione.getOptimumValue());
+            SscLogger.log("Value:" + soluzione.getOptimumValue());
         }
         tableViewResult.setItems(problemList);
     }
@@ -191,7 +196,7 @@ public class Controller {
         problem.setPrice(event.getNewValue());
     }
 
-    public void onRestrictionLimitEdit(TableColumn.CellEditEvent<Restriction, Double> event) {
+    public void onRestrictionLimitEdit(TableColumn.CellEditEvent<Restriction, String> event) {
         Restriction restriction = tableViewRestriction.getSelectionModel().getSelectedItem();
         restriction.setLimit(event.getNewValue());
     }
@@ -216,7 +221,7 @@ public class Controller {
         col_uoVal.setCellFactory(TextFieldTableCell.<UnitOutlay, Double>forTableColumn(new DoubleStringConverter()));
         col_problemName.setCellFactory(TextFieldTableCell.forTableColumn());
         col_problemPrice.setCellFactory(TextFieldTableCell.<Problem, Double>forTableColumn(new DoubleStringConverter()));
-        col_restrictionLimit.setCellFactory(TextFieldTableCell.<Restriction, Double>forTableColumn(new DoubleStringConverter()));
+        col_restrictionLimit.setCellFactory(TextFieldTableCell.forTableColumn());
 
         tableViewStock.setItems(stockList);
         tableViewProblem.setItems(problemList);
