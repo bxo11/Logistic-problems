@@ -11,7 +11,7 @@ public class Restriction {
     public Restriction(String variable) {
         this.variable = variable;
         this.limit = "";
-        this.comboBoxSign = new ComboBox(FXCollections.observableArrayList("=","<=",">=","<",">"));
+        this.comboBoxSign = new ComboBox(FXCollections.observableArrayList("=","<=",">="));
     }
 
     public String getVariable() {
