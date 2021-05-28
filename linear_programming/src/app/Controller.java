@@ -55,7 +55,6 @@ public class Controller {
     public void problemDeleteButton() {
         int index = tableViewProblem.getSelectionModel().getSelectedIndex();
         if (index == -1) {
-            System.out.println("Select problem");
             return;
         }
         problemList.remove(index);
@@ -73,7 +72,6 @@ public class Controller {
     public void stockDeleteButton() {
         int index = tableViewStock.getSelectionModel().getSelectedIndex();
         if (index == -1) {
-            System.out.println("Select stock");
             return;
         }
         stockList.remove(index);
@@ -141,7 +139,6 @@ public class Controller {
     public void restrictionAddButton() {
         Problem problem = tableViewProblem.getSelectionModel().getSelectedItem();
         if (problem == null) {
-            System.out.println("Select problem");
             return;
         }
         Restriction restriction = new Restriction(problem.getName());
@@ -151,7 +148,6 @@ public class Controller {
     public void restrictionDeleteButton() {
         int index = tableViewRestriction.getSelectionModel().getSelectedIndex();
         if (index == -1) {
-            System.out.println("Select problem");
             return;
         }
         restrictionList.remove(index);
@@ -160,7 +156,6 @@ public class Controller {
     public void showUO() {
         Stock stock = tableViewStock.getSelectionModel().getSelectedItem();
         if (stock == null) {
-            System.out.println("Select stock");
             return;
         }
         uoList = stock.getUnitOutlayList();
