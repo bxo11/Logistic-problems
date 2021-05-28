@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -30,8 +30,9 @@
          <children>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="372.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="78.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="281.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="17.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="110.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
@@ -40,11 +41,11 @@
                <children>
                   <TableView fx:id="tableViewProblem" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_problemName" editable="false" prefWidth="132.99996376037598" text="Name" />
-                        <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="100.0" text="Price" />
+                      <TableColumn fx:id="col_problemName" editable="false" prefWidth="136.0" text="Name" />
+                        <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="140.0" text="Price" />
                     </columns>
                   </TableView>
-                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -53,8 +54,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="buttonProblemAdd" mnemonicParsing="false" onAction="#problemAddButton" text="Add" />
-                        <Button fx:id="buttonProblemDel" mnemonicParsing="false" onAction="#problemDeleteButton" text="Delete" GridPane.rowIndex="1" />
+                        <Button fx:id="buttonProblemAdd" mnemonicParsing="false" onAction="#problemAddButton" prefHeight="27.0" prefWidth="54.0" text="Add" />
+                        <Button fx:id="buttonProblemDel" mnemonicParsing="false" onAction="#problemDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Label text="Materials" />
@@ -62,32 +63,33 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="377.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="73.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="309.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="76.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="16.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tableViewRestriction" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <TableView fx:id="tableViewRestriction" editable="true" prefHeight="153.0" prefWidth="295.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_restrictionVariable" editable="false" prefWidth="80.00003051757812" text="Variable" />
-                      <TableColumn fx:id="col_restrictionSign" prefWidth="70.0" text="Sign" />
-                        <TableColumn fx:id="col_restrictionLimit" onEditCommit="#onRestrictionLimitEdit" prefWidth="75.0" text="Limit" />
+                      <TableColumn fx:id="col_restrictionVariable" editable="false" prefWidth="120.0" text="Variable" />
+                      <TableColumn fx:id="col_restrictionSign" prefWidth="74.0" text="Sign" />
+                        <TableColumn fx:id="col_restrictionLimit" onEditCommit="#onRestrictionLimitEdit" prefWidth="112.0" text="Limit" />
                     </columns>
                   </TableView>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="restrictionAddButton" mnemonicParsing="false" onAction="#restrictionAddButton" text="Add" />
-                        <Button fx:id="restrictionDeleteButton" mnemonicParsing="false" onAction="#restrictionDeleteButton" text="Delete" GridPane.rowIndex="1" />
+                        <Button fx:id="restrictionAddButton" mnemonicParsing="false" onAction="#restrictionAddButton" prefHeight="27.0" prefWidth="54.0" text="Add" />
+                        <Button fx:id="restrictionDeleteButton" mnemonicParsing="false" onAction="#restrictionDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <Label text="Constraints" />
@@ -114,16 +116,16 @@
                 <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="194.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tableViewStock" editable="true" onMouseClicked="#showUO" prefHeight="251.0" prefWidth="162.0" GridPane.rowIndex="1">
+                  <TableView fx:id="tableViewStock" editable="true" onMouseClicked="#showUO" prefHeight="194.0" prefWidth="181.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_stockName" onEditCommit="#onStockNameEdit" prefWidth="83.99997138977051" text="Stock" />
-                        <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="96.99999237060547" text="Max Production" />
+                      <TableColumn fx:id="col_stockName" onEditCommit="#onStockNameEdit" prefWidth="75.0" text="Stock" />
+                        <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="100.0" text="Max Production" />
                     </columns>
                   </TableView>
                   <TableView fx:id="tableViewUnitOutlay" editable="true" prefHeight="251.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="119.0" sortable="false" text="Name" />
-                      <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="114.0" sortable="false" text="Value" />
+                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="111.0" sortable="false" text="Name" />
+                      <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="110.0" sortable="false" text="Value" />
                     </columns>
                   </TableView>
                   <Label text="Stocks" />
@@ -132,21 +134,22 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="369.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="81.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="56.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="304.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="37.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="192.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tableViewResult" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <TableView fx:id="tableViewResult" prefHeight="194.0" prefWidth="295.0" style="-fx-background-color: #ffd7d1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_resultName" prefWidth="100.00003051757812" text="Name" />
-                      <TableColumn fx:id="col_resultAmount" prefWidth="110.0" text="Amount" />
+                      <TableColumn fx:id="col_resultName" prefWidth="150.0" text="Name" />
+                      <TableColumn fx:id="col_resultAmount" prefWidth="153.0" text="Amount" />
                     </columns>
                   </TableView>
-                  <Label text="Result" />
+                  <Label text="Result" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -161,13 +164,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="buttonStockAdd" mnemonicParsing="false" onAction="#stockAddButton" text="Add" />
-            <Button fx:id="buttonStockDel" mnemonicParsing="false" onAction="#stockDeleteButton" text="Delete" GridPane.rowIndex="1" />
-            <Button fx:id="buttonSolve" mnemonicParsing="false" onAction="#buttonSolve" text="Solve" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="buttonStockAdd" mnemonicParsing="false" onAction="#stockAddButton" prefHeight="27.0" prefWidth="54.0" text="Add" />
+            <Button fx:id="buttonStockDel" mnemonicParsing="false" onAction="#stockDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
+            <Button fx:id="buttonSolve" mnemonicParsing="false" onAction="#buttonSolve" prefHeight="27.0" prefWidth="54.0" text="Solve" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <GridPane GridPane.columnIndex="1">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="55.999969482421875" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0000305175781" minWidth="10.0" prefWidth="394.0000305175781" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="57.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0000305175781" minWidth="10.0" prefWidth="343.5" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

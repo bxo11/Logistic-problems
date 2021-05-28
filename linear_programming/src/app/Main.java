@@ -6,14 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("input.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("input.fxml")));
         primaryStage.setTitle("Linear programming");
-        primaryStage.setScene(new Scene(root, 900, 600));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
