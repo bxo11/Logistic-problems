@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
@@ -30,9 +31,9 @@
          <children>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="281.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="17.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="110.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="279.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="9.0" prefWidth="11.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="111.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
@@ -58,7 +59,10 @@
                         <Button fx:id="buttonProblemDel" mnemonicParsing="false" onAction="#problemDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Label text="Materials" />
+                  <Label text="Materials" textFill="#ab1010">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1">
@@ -92,7 +96,10 @@
                         <Button fx:id="restrictionDeleteButton" mnemonicParsing="false" onAction="#restrictionDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Label text="Constraints" />
+                  <Label text="Constraints" textFill="#ab1010">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
                </children>
             </GridPane>
          </children>
@@ -128,8 +135,14 @@
                       <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="110.0" sortable="false" text="Value" />
                     </columns>
                   </TableView>
-                  <Label text="Stocks" />
-                  <Label text="Consumption norms" GridPane.columnIndex="1" />
+                  <Label text="Stocks" textFill="#ab1010">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
+                  <Label text="Consumption norms" textFill="#ab1010" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1">
@@ -149,7 +162,10 @@
                       <TableColumn fx:id="col_resultAmount" prefWidth="153.0" text="Amount" />
                     </columns>
                   </TableView>
-                  <Label text="Result" GridPane.columnIndex="1" />
+                  <Label text="Result" textFill="#22a11b" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
                </children>
             </GridPane>
          </children>
@@ -176,7 +192,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income:" />
+                  <Text fill="#22a11b" strokeType="OUTSIDE" strokeWidth="0.0" text="Income:">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Text>
                   <Text fx:id="income" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
                </children>
             </GridPane>
