@@ -1,9 +1,5 @@
 package classes;
 
-import it.ssc.log.SscLogger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 public class Problem {
     String name;
     static int iter = 1;
