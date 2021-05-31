@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -42,7 +42,7 @@
                <children>
                   <TableView fx:id="tableViewProblem" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_problemName" editable="false" prefWidth="136.0" text="Name" />
+                      <TableColumn fx:id="col_problemName" editable="false" prefWidth="132.0" text="Name" />
                         <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="140.0" text="Price" />
                     </columns>
                      <GridPane.margin>
@@ -68,7 +68,7 @@
                            </GridPane.margin></Button>
                      </children>
                   </GridPane>
-                  <Label text="Materials" textFill="#ab1010" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label text="  Materials" textFill="#ab1010" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -86,7 +86,7 @@
                <children>
                   <TableView fx:id="tableViewRestriction" editable="true" prefHeight="200.0" prefWidth="295.0" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_restrictionVariable" editable="false" prefWidth="120.0" text="Variable" />
+                      <TableColumn fx:id="col_restrictionVariable" editable="false" prefWidth="119.0" text="Variable" />
                       <TableColumn fx:id="col_restrictionSign" prefWidth="74.0" text="Sign" />
                         <TableColumn fx:id="col_restrictionLimit" onEditCommit="#onRestrictionLimitEdit" prefWidth="112.0" text="Limit" />
                     </columns>
@@ -113,7 +113,7 @@
                            </GridPane.margin></Button>
                      </children>
                   </GridPane>
-                  <Label text="Constraints" textFill="#ab1010" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label text="  Constraints" textFill="#ab1010" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -143,7 +143,7 @@
                   <TableView fx:id="tableViewStock" editable="true" onMouseClicked="#showUO" prefHeight="194.0" prefWidth="181.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="col_stockName" onEditCommit="#onStockNameEdit" prefWidth="75.0" text="Stock" />
-                        <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="118.0" text="Max Production" />
+                        <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="117.0" text="Max Production" />
                     </columns>
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
@@ -151,18 +151,18 @@
                   </TableView>
                   <TableView fx:id="tableViewUnitOutlay" editable="true" prefHeight="251.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="88.0" sortable="false" text="Name" />
-                      <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="133.0" sortable="false" text="Value" />
+                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="84.0" sortable="false" text="Name" />
+                      <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="100.0" sortable="false" text="Value" />
                     </columns>
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TableView>
-                  <Label text="Stocks" textFill="#ab1010" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label text="  Stocks" textFill="#ab1010" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <Label text="Consumption norms" textFill="#ab1010" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label text="  Consumption norms" textFill="#ab1010" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -181,16 +181,19 @@
                   <TableView fx:id="tableViewResult" prefHeight="194.0" prefWidth="295.0" style="-fx-background-color: #ffd7d1;" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="col_resultName" prefWidth="150.0" text="Name" />
-                      <TableColumn fx:id="col_resultAmount" prefWidth="153.0" text="Amount" />
+                      <TableColumn fx:id="col_resultAmount" prefWidth="172.0" text="Amount" />
                     </columns>
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TableView>
-                  <Label text="Result" textFill="#22a11b" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                  <Label text="  Result" textFill="#22a11b" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
-                     </font></Label>
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></Label>
                </children>
             </GridPane>
          </children>
