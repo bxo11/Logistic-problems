@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -32,7 +33,6 @@
             <GridPane>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="279.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="9.0" prefWidth="11.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="111.0" />
               </columnConstraints>
               <rowConstraints>
@@ -45,8 +45,11 @@
                       <TableColumn fx:id="col_problemName" editable="false" prefWidth="136.0" text="Name" />
                         <TableColumn fx:id="col_problemPrice" onEditCommit="#onProblemPriceEdit" prefWidth="140.0" text="Price" />
                     </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
                   </TableView>
-                  <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -55,11 +58,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="buttonProblemAdd" mnemonicParsing="false" onAction="#problemAddButton" prefHeight="27.0" prefWidth="54.0" text="Add" />
-                        <Button fx:id="buttonProblemDel" mnemonicParsing="false" onAction="#problemDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
+                        <Button fx:id="buttonProblemAdd" mnemonicParsing="false" onAction="#problemAddButton" prefHeight="27.0" prefWidth="54.0" text="Add">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin></Button>
+                        <Button fx:id="buttonProblemDel" mnemonicParsing="false" onAction="#problemDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin></Button>
                      </children>
                   </GridPane>
-                  <Label text="Materials" textFill="#ab1010">
+                  <Label text="Materials" textFill="#ab1010" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -69,19 +78,21 @@
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="309.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="76.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="16.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="86.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="153.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tableViewRestriction" editable="true" prefHeight="153.0" prefWidth="295.0" GridPane.rowIndex="1">
+                  <TableView fx:id="tableViewRestriction" editable="true" prefHeight="200.0" prefWidth="295.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="col_restrictionVariable" editable="false" prefWidth="120.0" text="Variable" />
                       <TableColumn fx:id="col_restrictionSign" prefWidth="74.0" text="Sign" />
                         <TableColumn fx:id="col_restrictionLimit" onEditCommit="#onRestrictionLimitEdit" prefWidth="112.0" text="Limit" />
                     </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
                   </TableView>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
@@ -92,11 +103,17 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="restrictionAddButton" mnemonicParsing="false" onAction="#restrictionAddButton" prefHeight="27.0" prefWidth="54.0" text="Add" />
-                        <Button fx:id="restrictionDeleteButton" mnemonicParsing="false" onAction="#restrictionDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
+                        <Button fx:id="restrictionAddButton" mnemonicParsing="false" onAction="#restrictionAddButton" prefHeight="27.0" prefWidth="54.0" text="Add">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin></Button>
+                        <Button fx:id="restrictionDeleteButton" mnemonicParsing="false" onAction="#restrictionDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin></Button>
                      </children>
                   </GridPane>
-                  <Label text="Constraints" textFill="#ab1010">
+                  <Label text="Constraints" textFill="#ab1010" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -115,8 +132,8 @@
          <children>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="202.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="248.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="204.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="196.0" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
@@ -126,20 +143,26 @@
                   <TableView fx:id="tableViewStock" editable="true" onMouseClicked="#showUO" prefHeight="194.0" prefWidth="181.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="col_stockName" onEditCommit="#onStockNameEdit" prefWidth="75.0" text="Stock" />
-                        <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="100.0" text="Max Production" />
+                        <TableColumn fx:id="col_stockMaxProduction" onEditCommit="#onStockMaxProductionEdit" prefWidth="118.0" text="Max Production" />
                     </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
                   </TableView>
                   <TableView fx:id="tableViewUnitOutlay" editable="true" prefHeight="251.0" prefWidth="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="111.0" sortable="false" text="Name" />
-                      <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="110.0" sortable="false" text="Value" />
+                      <TableColumn fx:id="col_uoName" editable="false" onEditCommit="#onUONameEdit" prefWidth="88.0" sortable="false" text="Name" />
+                      <TableColumn fx:id="col_uoVal" minWidth="0.0" onEditCommit="#onUOValueEdit" prefWidth="133.0" sortable="false" text="Value" />
                     </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
                   </TableView>
-                  <Label text="Stocks" textFill="#ab1010">
+                  <Label text="Stocks" textFill="#ab1010" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <Label text="Consumption norms" textFill="#ab1010" GridPane.columnIndex="1">
+                  <Label text="Consumption norms" textFill="#ab1010" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -147,7 +170,6 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1">
               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="56.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="304.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="37.0" />
               </columnConstraints>
@@ -156,13 +178,16 @@
                 <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="192.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="tableViewResult" prefHeight="194.0" prefWidth="295.0" style="-fx-background-color: #ffd7d1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TableView fx:id="tableViewResult" prefHeight="194.0" prefWidth="295.0" style="-fx-background-color: #ffd7d1;" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="col_resultName" prefWidth="150.0" text="Name" />
                       <TableColumn fx:id="col_resultAmount" prefWidth="153.0" text="Amount" />
                     </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
                   </TableView>
-                  <Label text="Result" textFill="#22a11b" GridPane.columnIndex="1">
+                  <Label text="Result" textFill="#22a11b" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
@@ -180,9 +205,18 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="buttonStockAdd" mnemonicParsing="false" onAction="#stockAddButton" prefHeight="27.0" prefWidth="54.0" text="Add" />
-            <Button fx:id="buttonStockDel" mnemonicParsing="false" onAction="#stockDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1" />
-            <Button fx:id="buttonSolve" mnemonicParsing="false" onAction="#buttonSolve" prefHeight="27.0" prefWidth="54.0" text="Solve" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="buttonStockAdd" mnemonicParsing="false" onAction="#stockAddButton" prefHeight="27.0" prefWidth="54.0" text="Add">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="buttonStockDel" mnemonicParsing="false" onAction="#stockDeleteButton" prefHeight="27.0" prefWidth="54.0" text="Delete" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="buttonSolve" mnemonicParsing="false" onAction="#buttonSolve" prefHeight="27.0" prefWidth="54.0" text="Solve" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Button>
             <GridPane GridPane.columnIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="10.0" prefWidth="57.0" />
@@ -195,7 +229,10 @@
                   <Text fill="#22a11b" strokeType="OUTSIDE" strokeWidth="0.0" text="Income:">
                      <font>
                         <Font name="System Bold" size="13.0" />
-                     </font></Text>
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin></Text>
                   <Text fx:id="income" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
                </children>
             </GridPane>

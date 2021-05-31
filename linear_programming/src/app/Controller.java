@@ -94,7 +94,7 @@ public class Controller {
         for (Restriction r : restrictionList) {
             Object sign = r.getComboBoxSign().getSelectionModel().getSelectedItem();
             String res = "";
-            if (r.getLimit().matches("^[0-9]*$")) {
+            if (r.getLimit().matches("^[0-9.]*$")) {
                 res += r.getVariable() + sign + r.getLimit();
             } else {
                 res += r.getVariable() + "-" + r.getLimit() + sign + "0";
